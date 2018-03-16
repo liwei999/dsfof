@@ -12,11 +12,11 @@ Page({
   data: {
     infoMess: '',
     userN: '',
-    userP: '',
+    // userP: '',
     passW: '',
     userName: '',
     passWd: '',
-    userPhone: '',
+    // userPhone: '',
     loginToast: true,
     showTipTxt: '',
     tipHidden: true,
@@ -34,15 +34,15 @@ Page({
         if (rui != null && rui != '') {
           var name = rif.name;
           var pswd = rif.pswd;
-          var phone = rif.phone;
-          console.log('name', name, 'pswd', pswd, 'phone', phone);
+          //var phone = rif.phone;
+          console.log('name', name, 'pswd', pswd);
           this.setData({
             userN: name,
-            userP: phone,
+            //userP: phone,
             passW: pswd,
             userName: name,
             passWd: pswd,
-            userPhone: phone
+            //userPhone: phone
           })
         }
       } else {
@@ -60,11 +60,11 @@ Page({
       userN: e.detail.value
     })
   },
-  userPhoneInput: function (e) {
-    this.setData({
-      userP: e.detail.value
-    })
-  },
+  // userPhoneInput: function (e) {
+  //   this.setData({
+  //     userP: e.detail.value
+  //   })
+  // },
   passWdInput: function (e) {
     this.setData({
       passW: e.detail.value
@@ -90,14 +90,14 @@ Page({
     var that = this;
 
     var userName = this.data.userN;
-    var userPhone = this.data.userP;
+    //var userPhone = this.data.userP;
     var passWd = this.data.passW;
-    if (userName == '') {
+    if (userName == '' || userName ==undefined) {
       console.log("用户名不能为空");
       toast('用户名不能为空');
       return;
     }
-    if (passWd == '') {
+    if (passWd == '' || passWd == undefined) {
       console.log("密码不能为空");
       toast('密码不能为空');
       return;
@@ -108,7 +108,7 @@ Page({
       return;
     }*/
 
-    console.log(userName, passWd, userPhone);
+    console.log(userName, passWd, rbFlag);
 
     wx.showToast({
       title: '加载中',
@@ -117,32 +117,56 @@ Page({
 
     // 记住密码,你也可以放到请求数据成功的里面，这样用户输错信息，就不会记住错误的密码
     // 跳转带有tab的界面使用：wx.switchTab({ url: "../home/home" });
-    var obj = new Object();
-    obj.name = userName;
-    obj.pswd = passWd;
-    obj.phone = userPhone;
-    console.log('obj', obj);
-    wx.setStorageSync(rui, obj);
+   
 
     // 最后再进行MD5加密，这里假设数据请求成功直接跳转界面
     var request = true;
-    if (request) {
-      wx.navigateTo({
-        url: "../index/index?" +
-        "userName=" + userName + "&" +
-        "passWd=" + passWd + "&" +
-        "userPhone=" + userPhone,
-        success: function (res) {
 
-        },
-        fail: function (res) {
-          // fail
-        },
-        complete: function (res) {
-          // complete
-        }
+    if (userName == "wuc" && passWd=="123")
+    {
+      var obj = new Object();
+      obj.name = userName;
+      obj.pswd = passWd;
+      obj.rbFlag = rbFlag;
+      // obj.phone = userPhone;
+      console.log('obj', obj);
+      wx.setStorageSync(rui, obj);
+      wx.navigateTo({
+        url: '../logs/logs',
       })
     }
+    else
+    {
+      toast('用户名密码错误');
+      this.setData({
+        passWd: ""
+      })
+      var obj = new Object();
+      obj.name = userName;
+      obj.pswd = "";
+      obj.rbFlag = rbFlag;
+      // obj.phone = userPhone;
+      console.log('obj', obj);
+      wx.setStorageSync(rui, obj);
+      return;
+    }
+    // if (request) {
+    //   wx.navigateTo({
+    //     url: "../index/index?" +
+    //     "userName=" + userName + "&" +
+    //     "passWd=" + passWd + "&" +
+    //     "userPhone=" + userPhone,
+    //     success: function (res) {
+
+    //     },
+    //     fail: function (res) {
+    //       // fail
+    //     },
+    //     complete: function (res) {
+    //       // complete
+    //     }
+    //   })
+    // }
 
     // 发送网络请求
     // wx.request({
