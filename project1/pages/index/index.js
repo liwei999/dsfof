@@ -16,7 +16,7 @@ Page({
       wx.redirectTo({
         url: '../login/login',
       })
-    },3000)
+    },1000)
   },
   getUserInfo: function(e) {
     console.log(e)
