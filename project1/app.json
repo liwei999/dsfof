@@ -1,14 +1,42 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/login/login",
+    "pages/home/home",
+    "pages/ranking/ranking",
+    "pages/setup/setup",
     "pages/logs/logs",
     "pages/main/main"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "基金大赛",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#c2c2c2",
+    "selectedColor": "#2f7ccb",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "selectedIconPath": "image/my-solid.png",
+        "iconPath": "image/my-hollow.png",
+        "pagePath": "pages/home/home",
+        "text": "我的"
+      },
+      {
+        "selectedIconPath": "image/ranking-solid.png",
+        "iconPath": "image/ranking-hollow.png",
+        "pagePath": "pages/ranking/ranking",
+        "text": "排行"
+      },
+      {
+        "selectedIconPath": "image/setup-solid.png",
+        "iconPath": "image/setup-hollow.png",
+        "pagePath": "pages/setup/setup",
+        "text": "设置"
+      }
+    ]
   }
 }
