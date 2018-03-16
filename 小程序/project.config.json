@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
 	"appid": "wx37bea5dc81d3dc12",
-	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"projectname": "ds",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
