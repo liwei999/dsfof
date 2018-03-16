@@ -132,7 +132,7 @@ Page({
       console.log('obj', obj);
       wx.setStorageSync(rui, obj);
       wx.navigateTo({
-        url: '../logs/logs',
+        url: '../main/main',
       })
     }
     else
