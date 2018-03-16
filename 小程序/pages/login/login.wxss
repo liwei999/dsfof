@@ -1,0 +1,63 @@
+.body {
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    min-height: 100%;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.wrapper {
+    padding: 0 50rpx;
+}
+
+.ft-center {
+    text-align: center;
+}
+
+.ft-warn {
+    font-weight: 600;
+    color: #d23f31;
+}
+
+wrapper1 {
+  padding: 0rpx;
+}
+
+.banner {
+  width: 750rpx;
+  height: 243rpx;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 120rpx;
+}
+
+button {
+  margin-top: 100rpx;
+  font-size: 32rpx;
+}
+
+input {
+  margin-top: 60rpx;
+  border: 1rpx solid #ccc;
+  background-color: #fff;
+  border-radius: 8rpx;
+
+  padding: 14rpx 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 40rpx;
+  height: 68rpx;
+}
+
+.useritemView-image {
+  height: 0px;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  color: #888;
+}
+
+.user-image {
+  width: 20px;
+  height: 20px;
+  padding-right: 6px;
+}
+

@@ -1,0 +1,18 @@
+
+<!--login.wxml-->
+<view class="body">
+  <form class='wrapper1'>
+    <image class="banner" src="../../image/banner1.png"></image>
+  </form>
+</view>
+
+<view class="body wrapper">
+  <form bindsubmit="login">
+    <input name="userName" bindinput="userNameInput" value="{{userName}}" placeholder="用户名/邮箱"/>
+    <input password name="password" bindinput="passWdInput" value="{{passWd}}" placeholder="密码"/>
+    <view class="useritemView-image" bindtap="rembUser">
+      <image src="{{image}}" class="user-image"></image>记住密码
+    </view>
+    <button type="primary" form-type="submit" bindtap="loginBtnClick">登录</button>
+  </form>
+</view>

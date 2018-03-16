@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2f7ccb",
+    "navigationBarTitleText": "基金大赛",
+    "navigationBarTextStyle":"white"
+  }
+}
