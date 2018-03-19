@@ -27,7 +27,7 @@ wrapper1 {
   height: 243rpx;
   margin: 0 auto;
   display: block;
-  padding-bottom: 40rpx;
+  padding-bottom: 120rpx;
 }
 
 button {

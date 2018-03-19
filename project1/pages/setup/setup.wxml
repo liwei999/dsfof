@@ -11,7 +11,7 @@
   </view>
   <view class="settings-list">
     <view class="settings-item">
-      <text class="settings-text">修改密码</text>
+      <navigator url='../password/password' class="settings-text">修改密码</navigator>
     </view>
     <view class="settings-item no-border">
       <text class="settings-text">退出登录</text>
