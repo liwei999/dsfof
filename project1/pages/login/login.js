@@ -131,8 +131,8 @@ Page({
       // obj.phone = userPhone;
       console.log('obj', obj);
       wx.setStorageSync(rui, obj);
-      wx.navigateTo({
-        url: '../main/main',
+      wx.switchTab({
+        url: '../home/home',
       })
     }
     else
