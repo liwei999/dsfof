@@ -30,7 +30,9 @@
 .swiper-tab{  
     width: 100%;  
     text-align: center;  
-    line-height: 40px;}  
+    line-height: 40px;
+    border-bottom:1px solid #d9d9d9;
+    }  
 .swiper-tab-list{
     font-size: 16px;
     display: inline-block;  
@@ -45,6 +47,77 @@
 .swiper-box view{  
     text-align: center;  
 }
+.swiper_item{padding: 7px 0px 7px 0px; border-bottom: 1px solid #d9d9d9; width: 100%; font-size: 15px;color: #9d9d9d;}
+.swiper_item_content{display: flex; flex-direction:row; margin-left: 23px; margin-right: 23px;}
+.swiper_item_content_item{width: 33.3%; text-align: center; vertical-align: middle;border:1px solid #d9d9d9;padding: 4px 0px 4px 0px;border-right: 0px;}
+.item_right{border-right: 1px solid #d9d9d9;border-radius: 0 5px 5px 0px}
+.item_left{border-radius: 5px 0px 0px 5px}
+.swiper_item_content_item_action{background-color: #d9d9d9; color: #373737;}
+::-webkit-scrollbar
+{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.table_th{display: flex; flex-direction: row;color: #555555;text-align: center;font-size: 14px;}
+.table_th .th{width: 23%;padding: 6px 0px; border-bottom: 1px solid #d9d9d9;}
+
+.table_td{display: flex; flex-direction: row; text-align: center;padding: 13px 0px;border-bottom: 1px solid #d9d9d9;}
+.table_td .td{width: 23%;}
+
+.fund_second_all{display: flex;flex-direction: row;justify-content: left;padding-left: 5px;}
+.fund_first{font-size: 16px;display: block;font-weight: 500; text-align: center; padding-left: 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fund_first_name{text-align:left}
+.fund_second{font-size: 12px;display: block;}
+
+.font_red{color:#ff0000;}
+.font_green{color:#2bb98f;}
+
+.detailed{font-size: 14px;display: flex; flex-direction: row; padding: 10px 16px 10px 16px;background-color: #efefef;color:#373737;}
+.detailed_left{width: 50%; }
+.detailed_right{width: 50%;}
+.detailed_right view{text-align: left;}
+.detailed_right view text{padding-left: 3px;}
+.detailed_left view{text-align: left;}
+.detailed_left view text{padding-left: 3px;}
+.cz{display:flex; flex-direction:row; }
+.cz button{width: 50%;color: #ffffff;font-weight: 500; height: 40px;border-radius: 0px;border: none;font-size: 16px;}
+.cz button image{margin-right: 5px;}
+.btn_sh{background-color: #13b2ae;}
+.btn_zt{background-color: #ff0000;}
+
+
+/**
+*下单明细开始
+*/
+.fund_xd_first{font-size: 14px;display: block;font-weight: 500; color: #373737;text-align:left;padding-left:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fund_xd_second{width: 40px;height: 14px;line-height:14px; border-radius: 1.5px;background-color: #ffa500;font-size: 12px;color: #ffffff; margin-left:6px;}
+.fund_time_first{font-size: 13px;font-weight: 500;}
+.fund_type_first{font-size: 14px;  color: #888888;}
+.fund_money_second{ font-size: 13px;font-weight: 500;color: #373737;}
+.fund_btn{width: 60px;height: 30px;line-height: 30px; border-radius: 4px;background-color: #ffa500;color: #ffffff;font-size: 15px;}
+
+.fund_ok_first{color: #9d9d9d;font-size: 13px;}
+.fund_xd_second_grey{background-color: #a5a5a5;}
+/**
+*下单明细结束
+*/
+
+/**
+*成交明细开始
+*/
+.row_mx{display: flex;flex-direction: row; font-size: 14px; padding-left: 5px; padding-top: 8px;border-bottom: 1px solid #d9d9d9;color: #9d9d9d;}
+.row_mx .row_mx_count{text-align: left; line-height: 26px;}
+.font_12{font-size: 12px;}
+.row_mx_left{width: 50%;}
+.row_mx_right{width: 50%;}
+.fund_name_mx{display:inline-block; color: #373737;font-weight: 500; padding-right: 6px; width: 100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:12px;}
+/**
+*成交明细结束
+*/
+
+.hidden{display:none;}
 
 .foot{width: 100%; position: fixed;bottom: 0; padding:10px 0 2px 0;background-color: #efefef;}
 .foot .btn{height: 40px;border-radius: 6px; background-color: #ff502e;font-size: 17px; font-weight: 500;color: #ffffff; width: 250px;}

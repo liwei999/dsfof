@@ -11,7 +11,9 @@ Page({
     winWidth: 0,
     winHeight: 0,
     // tab切换  
-    currentTab: 0
+    currentTab: 0,
+    currentTab2: 0,
+    pd:false
   },
 
   /**
@@ -30,6 +32,8 @@ Page({
           winWidth: res.windowWidth,
           winHeight: res.windowHeight
         });
+
+        console.log(that.data.winHeight);
       }
 
     });  
@@ -43,6 +47,32 @@ Page({
     that.setData({ currentTab: e.detail.current });
 
   },
+
+  bindChange2: function (e) {
+
+    var that = this;
+    that.setData({ currentTab2: e.detail.current });
+
+  },
+  /**
+   * 点击显示或者隐藏
+   */
+  detailed_showe:function(e)
+  {
+    var that =this;
+    if (that.data.pd)
+    {
+      that.setData({
+        pd:false
+      });
+    }
+    else{
+      that.setData({
+        pd: true
+      });
+    }
+  },
+
   /** 
    * 点击tab切换 
    */
@@ -58,7 +88,19 @@ Page({
       })
     }
   },
+  swichNav2: function (e) {
 
+    var that = this;
+    console.log(this.data.currentTab2 + "," + e.target.dataset.current)
+    if (this.data.currentTab2 === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab2: e.target.dataset.current
+      });
+    }
+  }
+,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
