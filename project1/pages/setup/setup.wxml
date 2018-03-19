@@ -1,1 +1,20 @@
-设置
+<view class="settings">
+  <view class="settings-list">
+    <view class="settings-item">
+      <text class="settings-text">客服电话</text>
+      <text class="settings-desc">{{tel}}</text>
+    </view>
+    <view class="settings-item no-border">
+      <text class="settings-text">E-mail</text>
+      <text class="settings-desc">{{version}}</text>
+    </view>
+  </view>
+  <view class="settings-list">
+    <view class="settings-item">
+      <text class="settings-text">修改密码</text>
+    </view>
+    <view class="settings-item no-border">
+      <text class="settings-text">退出登录</text>
+    </view>
+  </view>
+</view>

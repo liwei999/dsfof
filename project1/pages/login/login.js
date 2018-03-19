@@ -131,7 +131,7 @@ Page({
       // obj.phone = userPhone;
       console.log('obj', obj);
       wx.setStorageSync(rui, obj);
-      wx.switchTab({
+        wx.switchTab({
         url: '../home/home',
       })
     }

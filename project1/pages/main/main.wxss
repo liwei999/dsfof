@@ -1,0 +1,50 @@
+/* pages/main/main.wxss */
+.main{position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  /* align-items:center;垂直居中
+  justify-content: center;水平居中 */
+  background-color: #efefef;}
+.main .top{background-color: #ffffff;}
+.main .top .top1{display: flex; flex-direction: row; height: 50px; align-items:center; border-bottom: 1px solid #d9d9d9;border-top: 1px solid #d9d9d9;font-size: 16px;  justify-content: space-between;}
+.main .top .top1 .top1_left{margin-left: 15px;color: #000000;}
+.top_name{padding-right: 8px;border-right: 1px solid #d9d9d9;}
+.top_title{padding-left:8px;font-size: 15px;color:#a5a5a5}
+.top_money{padding-left: 9px;}
+.main .top .top1 .top1_right{text-align: right; padding-right: 15px;}
+.top_pm{color: #ffa500;padding-right: 9px;}
+.top_more{color: #d9d9d9;}
+.top2{width: 100%;}
+.top2_line{ width: 100%;padding: 9px 15px;color: #9d9d9d;font-size: 14px; }
+.top2_client{height: 100%;width: 100%;display:flex;flex-direction:row; justify-content: space-between;font-size: 13px; text-align: center;color: #a5a5a5; padding: 7px 0 18px 0;}
+.top2_client_left{ width: 50%; border-right: 1px solid #d9d9d9;}
+.top2_client_left_money{font-size: 24px;font-weight: bold; color: #2bb98f;}
+.top2_client_left_dw{font-weight: bold; color: #2bb98f;font-size: 15px;}
+.top2_client_right{width: 50%;}
+
+.center{margin-top: 12px; width: 100%;  background: #ffffff;}
+
+/**tab样式**/  
+.swiper-tab{  
+    width: 100%;  
+    text-align: center;  
+    line-height: 40px;}  
+.swiper-tab-list{
+    font-size: 16px;
+    display: inline-block;  
+    width: 50%;  
+    color: #373737;
+    font-weight: bold; 
+}  
+.on{ color: #ff502e;  
+    border-bottom: 5rpx solid #ff502e;}  
+  
+.swiper-box{ display: block;  width: 100%; overflow: hidden; }  
+.swiper-box view{  
+    text-align: center;  
+}
+
+.foot{width: 100%; position: fixed;bottom: 0; padding:10px 0 2px 0;background-color: #efefef;}
+.foot .btn{height: 40px;border-radius: 6px; background-color: #ff502e;font-size: 17px; font-weight: 500;color: #ffffff; width: 250px;}

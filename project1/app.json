@@ -5,7 +5,8 @@
     "pages/home/home",
     "pages/ranking/ranking",
     "pages/setup/setup",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/main/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
