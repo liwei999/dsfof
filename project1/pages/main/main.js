@@ -13,7 +13,8 @@ Page({
     // tab切换  
     currentTab: 0,
     currentTab2: 0,
-    pd:false
+    pd:false,
+    systemInfo:{}
   },
 
   /**
@@ -30,10 +31,17 @@ Page({
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
-          winHeight: res.windowHeight
+          winHeight: res.windowHeight,
+          systemInfo: res
         });
 
-        console.log(that.data.winHeight);
+        console.log(that.data.winHeight, that.data.systemInfo.platform);
+        // wx.showToast({
+        //   title: '' + that.data.winHeight,
+        //   icon: 'succes',
+        //   duration: 5000,
+        //   mask: true
+        // })
       }
 
     });  

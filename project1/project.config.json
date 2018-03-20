@@ -33,6 +33,18 @@
 					"name": "main",
 					"pathName": "pages/main/main",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ranking",
+					"pathName": "pages/ranking/ranking",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "持有基金详细",
+					"pathName": "pages/fundDetails/fundDetails",
+					"query": ""
 				}
 			]
 		}
