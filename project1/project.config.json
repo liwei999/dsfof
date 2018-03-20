@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.93",
-	"appid": "wxe8ab96f12a6bd562",
+	"appid": "wx9b06852d7a4f0da3",
 	"projectname": "%E5%9F%BA%E9%87%91%E5%A4%A7%E8%B5%9B",
 	"isGameTourist": false,
 	"condition": {
@@ -26,12 +26,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "main",
 					"pathName": "pages/main/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ranking",
+					"pathName": "pages/ranking/ranking",
 					"query": ""
 				}
 			]
