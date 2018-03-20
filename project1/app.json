@@ -6,8 +6,7 @@
     "pages/setup/setup",
     "pages/logs/logs",
     "pages/password/password",
-    "pages/main/main",
-    "pages/fundDetails/fundDetails"
+    "pages/main/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
