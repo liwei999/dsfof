@@ -1,0 +1,205 @@
+<!--pages/fundDetails/fundDetails.wxml-->
+
+
+
+<view>
+  <view class="table_th">
+    <view class="th" style="width:31%">基金名称</view>
+    <view class="th">最新净值</view>
+    <view class="th">日收益</view>
+    <view class="th">总收益</view>
+  </view>
+  <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px">
+    <view class="table_row">
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+      <view class="table_td">
+        <view class="td" style="width:31%">
+          <text class="fund_first fund_first_name">华夏成长</text>
+          <view class="fund_second_all">
+            <text class="fund_second font_red">000001</text>
+            <text class="fund_second">偏股混合</text>
+          </view>
+        </view>
+        <view class="td">
+          <text class="fund_first">1.0530</text>
+          <text class="fund_second">16-03-03</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_red">0.13%</text>
+          <text class="fund_second">412.77元</text>
+        </view>
+        <view class="td">
+          <text class="fund_first font_green">-5.23%</text>
+          <text class="fund_second font_green">630.77元</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
