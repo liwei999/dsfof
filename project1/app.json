@@ -6,7 +6,8 @@
     "pages/ranking/ranking",
     "pages/setup/setup",
     "pages/logs/logs",
-    "pages/password/password"
+    "pages/password/password",
+    "pages/main/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,7 +23,7 @@
       {
         "selectedIconPath": "image/my-solid.png",
         "iconPath": "image/my-hollow.png",
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/main/main",
         "text": "我的"
       },
       {

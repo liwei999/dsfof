@@ -23,7 +23,7 @@
           <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">收益走势</view> 
       </view>  
         <!-- style="height:{{winHeight - 31}}px" -->
-      <swiper current="{{currentTab}}" class="swiper-box" duration="300"  bindchange="bindChange" style="height:{{winHeight - 268}}px;">  
+      <swiper current="{{currentTab}}" class="swiper-box" duration="300"  bindchange="bindChange" style="height:{{winHeight - 323}}px;">  
           <!-- 交易明细 -->  
           <swiper-item>  
            <scroll-view scroll-x="false" scroll-y="true" style="height:100%;">
@@ -36,7 +36,7 @@
                 <view class="swiper_item_content_item item_right {{currentTab2==2 ? 'swiper_item_content_item_action' : ''}}" data-current="2" bindtap="swichNav2">成交明细</view>
                </view>
             </view>
-             <swiper current="{{currentTab2}}" class="swiper-box" duration="300"  bindchange="bindChange2" style="height:{{winHeight - 314}}px;">  
+             <swiper current="{{currentTab2}}" class="swiper-box" duration="300"  bindchange="bindChange2" style="height:{{winHeight - 369}}px;">  
              <swiper-item> 
                 <scroll-view scroll-x="false" scroll-y="true" style="height:100%;"> 
              <view>
@@ -99,6 +99,7 @@
                 
                 </view>
               </view>
+              
              
              </view>
               </scroll-view> 

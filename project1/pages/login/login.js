@@ -132,7 +132,7 @@ Page({
       console.log('obj', obj);
       wx.setStorageSync(rui, obj);
       wx.switchTab({
-        url: '../home/home',
+        url: '../main/main',
       })
     }
     else
