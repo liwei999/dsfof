@@ -13,7 +13,7 @@
     <view class="settings-item">
       <navigator url='../password/password' class="settings-text">修改密码</navigator>
     </view>
-    <view class="settings-item no-border">
+    <view bindtap="unsubscribeEvent" class="settings-item no-border">
       <text class="settings-text">退出登录</text>
     </view>
   </view>
