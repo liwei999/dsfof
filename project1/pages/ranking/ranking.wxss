@@ -1,11 +1,16 @@
 .center{width: 100%;  background: #ffffff;}
 
+
 /**tab样式**/  
 .swiper-tab{  
     width: 100%;  
     text-align: center;  
     line-height: 40px;
+    height:40px; 
     border-bottom:1px solid #d9d9d9;
+    position: fixed;
+    background-color: #ffffff;
+    z-index:2;
     }  
 .swiper-tab-list{
     font-size: 16px;
@@ -34,9 +39,11 @@
   color: transparent;
 }
 
-.table_th{display: flex; flex-direction: row;color: #555555;text-align: center;font-size: 14px;}
+.table_th{display: flex; flex-direction: row;color: #555555;text-align: center;font-size: 14px;
+ position: fixed;width: 100%; top: 40px; background-color: #ffffff;z-index:2; 
+}
 .table_th .th{width: 23%;padding: 6px 0px; border-bottom: 1px solid #d9d9d9;}
-.table_tbody{width: 100%;display: flex;flex-direction: column; font-size:16px;color: #373737;}
+.table_tbody{width: 100%;display: flex;flex-direction: column; font-size:16px;color: #373737;margin-top:75px;}
 .table_tr{width: 100%;flex-direction: row;display: flex;border-bottom: 1px solid #d9d9d9;padding:13px 0px;
 }
 .table_tr text{display: block;width: 23%;}

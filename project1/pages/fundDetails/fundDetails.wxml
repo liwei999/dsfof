@@ -1,6 +1,6 @@
 <!--pages/fundDetails/fundDetails.wxml-->
 
-
+<loading hidden="{{hiddenLoading}}">数据加载中...</loading>
 
 <view>
   <view class="table_th">
@@ -11,193 +11,25 @@
   </view>
   <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px">
     <view class="table_row">
-      <view class="table_td">
+      <view class="table_td" wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Id">
         <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
+          <text class="fund_first fund_first_name">{{item.f_name}}</text>
           <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
+            <text class="fund_second font_red">{{item.f_jysdm}}</text>
+            <text class="fund_second">{{item.F_type}}</text>
           </view>
         </view>
         <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
+          <text class="fund_first">{{item.Nv}}</text>
+          <text class="fund_second">{{item.F_Date}}</text>
         </view>
         <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
+          <text class="fund_first {{item.dRate>0?'font_red':'font_green'}}">{{item.dRate==""?"0.00":item.dRate}}%</text>
+          <text class="fund_second">{{item.dProfit==""?"0.00":item.dProfit}}元</text>
         </view>
         <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
-        </view>
-      </view>
-      <view class="table_td">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">华夏成长</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">000001</text>
-            <text class="fund_second">偏股混合</text>
-          </view>
-        </view>
-        <view class="td">
-          <text class="fund_first">1.0530</text>
-          <text class="fund_second">16-03-03</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_red">0.13%</text>
-          <text class="fund_second">412.77元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first font_green">-5.23%</text>
-          <text class="fund_second font_green">630.77元</text>
+          <text class="fund_first {{item.Rate>0?'font_red':'font_green'}}">{{item.Rate==""?"0.00":item.Rate}}%</text>
+          <text class="fund_second {{item.Profit>0?'font_red':'font_green'}}">{{item.Profit==""?"0.00":item.Profit}}元</text>
         </view>
       </view>
     </view>

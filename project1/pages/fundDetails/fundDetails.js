@@ -1,4 +1,5 @@
 // pages/fundDetails/fundDetails.js
+var util=require("../../utils/util.js");
 Page({
 
   /**
@@ -6,7 +7,9 @@ Page({
    */
   data: {
     winWidth: 0,
-    winHeight: 0
+    winHeight: 0,
+    fundDetailsList:[],
+    hiddenLoading: true,//页面加载loading true不显示
   },
 
   /**
@@ -14,7 +17,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
+    console.log(options);
+    wx.setNavigationBarTitle({
+      title: options.name+"持有的基金",
+    });
+    that.getdata(options.accountid);
     /** 
      * 获取系统信息 
      */
@@ -31,7 +38,33 @@ Page({
 
     });
   },
+/**
+ * 获得数据
+ */
+  getdata:function(acc_id){
+    //console.log(acc_id)
+    var that = this;
+    that.setData({ hiddenLoading: false });
+    wx.request({
+      url: util.urlstr + '/Ashx/GetAccountTradeList.ashx?otype=3&Account_Id='+acc_id+'&_search=false&nd=284&rows=100&page=1&sidx=f_jysdm&sord=asc&json=1',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        that.setData({ fundDetailsList: that.data.fundDetailsList.concat(res.data.data), hiddenLoading: true });
+      }
+      ,
+      fail: function (res) {
+        that.setData({ hiddenLoading: true });
+      },
+      complete: function (res) {
+        that.setData({ hiddenLoading: true });
+      }
+    })
 
+  }
+,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

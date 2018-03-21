@@ -1,5 +1,5 @@
 <!--pages/main/main.wxml-->
-
+<loading hidden="{{hiddenLoading}}">数据加载中...</loading>
 <view class='main'>
    <view class='top'>
       <view class='top1'>
