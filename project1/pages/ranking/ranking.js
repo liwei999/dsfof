@@ -9,7 +9,8 @@ Page({
     hiddenLoading: true,//页面加载loading true不显示
     LCSRankingList: [],//理财师组
     MSGTRankingList:[],//名师高徒组
-    Account_Type:0//排行榜类别 0理财师组 1名师高徒组
+    Account_Type:0,//排行榜类别 0理财师组 1名师高徒组
+    temp:"团队"
     },
   /** 
    * 滑动切换tab 
@@ -19,10 +20,12 @@ Page({
     var that = this;
     that.setData({ 
       currentTab: e.detail.current,
-      Account_Type: e.detail.current
+      Account_Type: e.detail.current,
+      temp: e.detail.current==0?'团队':'理财师'
        });
     if ((that.data.Account_Type == 0 && that.data.LCSRankingList.length == 0) || (that.data.Account_Type == 1 && that.data.MSGTRankingList.length == 0)) {
         that.getdata()
+        console.log("ssssss");
       }
   },
   bindclick:function(e)
@@ -50,9 +53,6 @@ Page({
           winWidth: res.windowWidth,
           winHeight: res.windowHeight
         });
-
-        console.log(that.data.winHeight);
-       
       }
 
     });
@@ -89,7 +89,7 @@ Page({
       {
         that.setData({ hiddenLoading: true });
       }
-    })
+    });
 
   },
 
@@ -105,14 +105,16 @@ Page({
     } else {
       that.setData({
         currentTab: e.target.dataset.current,
-        Account_Type: e.target.dataset.current
+        Account_Type: e.target.dataset.current,
+        temp: e.detail.current == 0 ? '团队' : '理财师'
       });
       if ((that.data.Account_Type == 0 && that.data.LCSRankingList.length == 0) || (that.data.Account_Type == 1 && that.data.MSGTRankingList.length == 0))
       {
         that.getdata()
+        console.log("123");
       }
      
     }
-  },
+  }
 
 });

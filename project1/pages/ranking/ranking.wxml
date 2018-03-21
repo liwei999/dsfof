@@ -4,17 +4,18 @@
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">理财师组</view>
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">名师高徒组</view>
   </view>
+    <view class="table_th">
+          <view class="th">排名</view>
+          <view class="th">姓名</view>
+          <view class="th">收益率</view>
+          <view class="th" style="width:31%">{{temp}}</view>
+        </view>
   <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{winHeight - 43}}px;">
     <!-- 理财师组 -->
     <swiper-item>
 
       <view>
-        <view class="table_th">
-          <view class="th">排名</view>
-          <view class="th">姓名</view>
-          <view class="th">收益率</view>
-          <view class="th" style="width:31%">团队</view>
-        </view>
+      
         <scroll-view scroll-x="false" scroll-y="true" style="height:{{(winHeight - 75)}}px;">
           <view class="table_tbody">
             <view class="table_tr" bindtap='bindclick' wx:for="{{LCSRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="User_id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
@@ -44,7 +45,7 @@
         </view>
         <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight - 74}}px;">
           <view class="table_tbody">
-            <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="User_id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
+            <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="Account_Id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
               <text>{{index+1}}</text>
               <text>{{item.Real_Name}}</text>
               <text class="{{item.Rate>0?'font_red':'font_green'}}">26.80%</text>
