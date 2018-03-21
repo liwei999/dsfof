@@ -15,7 +15,8 @@ Page({
     currentTab2: 0,
      systemInfo:{},
     hiddenLoading: false,//显示loading false为显示
-    name:"--"//客户姓名  },
+    name:"--"//客户姓名  
+    },
 
   /**
    * 生命周期函数--监听页面加载
@@ -33,7 +34,8 @@ Page({
           winWidth: res.windowWidth,
           
         });
-        // })      }
+        // })      
+        }
 
     });  
     that.setData({ hiddenLoading:true});
