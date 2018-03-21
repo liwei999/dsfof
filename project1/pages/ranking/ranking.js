@@ -4,15 +4,15 @@ Page({
   data:{ 
     winWidth: 0,
     winHeight: 0,
-    // tabÇĞ»»  
+    // tabåˆ‡æ¢  
     currentTab: 0,
-    hiddenLoading: true,//Ò³Ãæ¼ÓÔØloading true²»ÏÔÊ¾
-    LCSRankingList: [],//Àí²ÆÊ¦×é
-    MSGTRankingList:[],//ÃûÊ¦¸ßÍ½×é
-    Account_Type:0//ÅÅĞĞ°ñÀà±ğ 0Àí²ÆÊ¦×é 1ÃûÊ¦¸ßÍ½×é
+    hiddenLoading: true,//é¡µé¢åŠ è½½loading trueä¸æ˜¾ç¤º
+    LCSRankingList: [],//ç†è´¢å¸ˆç»„
+    MSGTRankingList:[],//åå¸ˆé«˜å¾’ç»„
+    Account_Type:0//æ’è¡Œæ¦œç±»åˆ« 0ç†è´¢å¸ˆç»„ 1åå¸ˆé«˜å¾’ç»„
     },
   /** 
-   * »¬¶¯ÇĞ»»tab 
+   * æ»‘åŠ¨åˆ‡æ¢tab 
    */
   bindChange: function (e) {
 
@@ -35,13 +35,13 @@ Page({
 
 
   /**
-   * ÉúÃüÖÜÆÚº¯Êı--¼àÌıÒ³Ãæ¼ÓÔØ
+   * ç”Ÿå‘½å‘¨æœŸå‡½æ•°--ç›‘å¬é¡µé¢åŠ è½½
    */
   onLoad: function (options) {
     var that = this;
 
     /** 
-     * »ñÈ¡ÏµÍ³ĞÅÏ¢ 
+     * è·å–ç³»ç»Ÿä¿¡æ¯ 
      */
     wx.getSystemInfo({
 
@@ -94,7 +94,7 @@ Page({
   },
 
   /** 
-   * µã»÷tabÇĞ»» 
+   * ç‚¹å‡»tabåˆ‡æ¢ 
    */
   swichNav: function (e) {
 
