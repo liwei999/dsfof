@@ -2,7 +2,7 @@
 <!--login.wxml-->
 <view class="body">
   <form class='wrapper1'>
-    <image class="banner" src="../../image/banner1.png"></image>
+    <image class="banner" src="../../image/banner.png"></image>
   </form>
 </view>
 

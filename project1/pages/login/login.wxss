@@ -24,10 +24,10 @@ wrapper1 {
 
 .banner {
   width: 750rpx;
-  height: 243rpx;
+  height: 306rpx;
   margin: 0 auto;
   display: block;
-  padding-bottom: 120rpx;
+  padding-bottom: 70rpx;
 }
 
 button {

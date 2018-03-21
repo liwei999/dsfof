@@ -6,7 +6,8 @@
     "pages/setup/setup",
     "pages/logs/logs",
     "pages/password/password",
-    "pages/main/main"
+    "pages/main/main",
+    "pages/buy/buy"
   ],
   "window": {
     "backgroundTextStyle": "light",
