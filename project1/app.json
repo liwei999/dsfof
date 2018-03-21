@@ -2,13 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    "pages/home/home",
     "pages/ranking/ranking",
     "pages/setup/setup",
     "pages/logs/logs",
     "pages/password/password",
     "pages/main/main",
-    "pages/fundDetails/fundDetails"
+    "pages/buy/buy"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,30 @@
+<!--pages/buy/buy.wxml-->
+<view class="group-body">
+  <view class="input-list">
+    <view class="input-item">
+      <text class="input-item-label">基金名称</text>
+      <view class="input-item-content">
+        <input type="text" placeholder="请输入基金名称\代码\拼音"></input>
+      </view>
+    </view>
+    <view class="input-item">
+      <text class="input-item-label">可用余额</text>
+      <view class="input-item-content">
+        <input type="text" placeholder="请输入公司名称"></input>
+      </view>
+    </view>
+    <view class="input-item">
+      <text class="input-item-label">买入金额</text>
+      <view class="input-item-content">
+        <input type="text" placeholder="请输入购买金额"></input>
+      </view>
+    </view>
+    <view class="input-item input-item-full">
+      <text class="input-item-label">操作备注</text>
+      <textarea placeholder="操作备注(选填)" maxlength="50"></textarea>
+    </view>
+  </view>
+</view>
+<view class="btn-submit">
+  <button class="btn-block btn-orange" bindtap="applySubmit">提交</button>
+</view>
