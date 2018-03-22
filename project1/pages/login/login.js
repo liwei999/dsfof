@@ -5,20 +5,15 @@ var util = require("../../utils/util.js");
 //获取应用实例
 var app = getApp()
 
-var rck = 'rememberCheck';
 var rui = 'rememberUserInfo';
 var loginList = 'loginList';
-var rbFlag = true;
+var rbFlag = "true";
 
 Page({
   data: {
     infoMess: '',
-    userN: '13506179761',
-    // userP: '',
-    passW: 'dsjj_zgx_check',
     userName: '13506179761',
     passWd: 'dsjj_zgx_check',
-    // userPhone: '',
     loginToast: true,
     showTipTxt: '',
     tipHidden: true,
@@ -28,23 +23,18 @@ Page({
   onLoad: function (options) {
     // 判断是否记住密码
     try {
-      rbFlag = wx.getStorageSync(rck);
-      console.log('rbFlag', rbFlag);
+      rbFlag = wx.getStorageSync(rui).rbFlag;
+      
       if (rbFlag) {
-        this.setData({ image: '/image/ok.png' })
         var rif = wx.getStorageSync(rui);
+        console.log('rif=', rif);
         if (rui != null && rui != '') {
           var name = rif.name;
           var pswd = rif.pswd;
-          //var phone = rif.phone;
           console.log('name', name, 'pswd', pswd);
           this.setData({
-            userN: name,
-            //userP: phone,
-            passW: pswd,
             userName: name,
             passWd: pswd,
-            //userPhone: phone
           })
         }
       } else {
@@ -65,7 +55,7 @@ Page({
 
   passWdInput: function (e) {
     this.setData({
-      passW: e.detail.value
+      passWd: e.detail.value
     })
   },
   // 记住密码
@@ -87,9 +77,8 @@ Page({
     console.log("点击-------------");
     var that = this;
 
-    var userName = this.data.userN;
-    //var userPhone = this.data.userP;
-    var passWd = this.data.passW;
+    var userName = this.data.userName;
+    var passWd = this.data.passWd;
     if (userName == '' || userName ==undefined) {
       console.log("用户名不能为空");
       toast('用户名不能为空');
@@ -115,8 +104,8 @@ Page({
     wx.request({
       url: util.urlstr + '/Ashx/Login.ashx',
       data: {
-        User_Name: this.data.userN,
-        PassWord: this.data.passW,
+        User_Name: this.data.userName,
+        PassWord: this.data.passWd,
         rememberLogin: true,
       },
       method: 'POST',
@@ -133,7 +122,7 @@ Page({
             var obj = new Object();
             obj.name = that.data.userName;
             obj.pswd = that.data.passWd;
-            obj.rbFlag = rbFlag;
+            obj.rbFlag = true;
             console.log('obj', obj);
             wx.setStorageSync(rui, obj);
             //跳转到登录成功默认主页
