@@ -1,0 +1,31 @@
+/* pages/Singledetail/Singledetail.wxss */
+
+.table_th{display: flex; flex-direction: row;color: #555555;text-align: center;font-size: 14px;}
+.table_th .th{width: 23%;padding: 6px 0px; border-bottom: 1px solid #d9d9d9;}
+
+.table_td{display: flex; flex-direction: row; text-align: center;padding: 13px 0px;border-bottom: 1px solid #d9d9d9;}
+.table_td .td{width: 23%;}
+
+.fund_second_all{display: flex;flex-direction: row;justify-content: left;padding-left: 5px;}
+.fund_first{font-size: 16px;display: block;font-weight: 500; text-align: center; padding-left: 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fund_first_name{text-align:left}
+.fund_second{font-size: 12px;display: block;}
+
+.font_red{color:#ff0000;}
+.font_green{color:#2bb98f;}
+
+/**
+*下单明细开始
+*/
+.fund_xd_first{font-size: 14px;display: block;font-weight: 500; color: #373737;text-align:left;padding-left:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fund_xd_second{width: 40px;height: 14px;line-height:14px; border-radius: 1.5px;background-color: #ffa500;font-size: 12px;color: #ffffff; margin-left:6px;}
+.fund_time_first{font-size: 13px;font-weight: 500;}
+.fund_type_first{font-size: 14px;  color: #888888;}
+.fund_money_second{ font-size: 13px;font-weight: 500;color: #373737;}
+.fund_btn{width: 60px;height: 30px;line-height: 30px; border-radius: 4px;background-color: #ffa500;color: #ffffff;font-size: 15px;}
+
+.fund_ok_first{color: #9d9d9d;font-size: 13px;}
+.fund_xd_second_grey{background-color: #a5a5a5;}
+/**
+*下单明细结束
+*/

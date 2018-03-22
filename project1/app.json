@@ -7,7 +7,10 @@
     "pages/logs/logs",
     "pages/password/password",
     "pages/main/main",
-    "pages/buy/buy"
+    "pages/buy/buy",
+    "pages/fundDetails/fundDetails",
+    "pages/Singledetail/Singledetail",
+    "pages/Dealdetail/Dealdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

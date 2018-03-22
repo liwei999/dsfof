@@ -13,10 +13,9 @@ Page({
     // tab切换  
     currentTab: 0,
     currentTab2: 0,
-     systemInfo:{},
-    hiddenLoading: false,//显示loading false为显示
-    name:"--"//客户姓名  
-    },
+    pd:false,
+    systemInfo:{}
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -32,13 +31,20 @@ Page({
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
-          
+          winHeight: res.windowHeight,
+          systemInfo: res
         });
-        // })      
-        }
+
+        console.log(that.data.winHeight, that.data.systemInfo.platform);
+        // wx.showToast({
+        //   title: '' + that.data.winHeight,
+        //   icon: 'succes',
+        //   duration: 5000,
+        //   mask: true
+        // })
+      }
 
     });  
-    that.setData({ hiddenLoading:true});
   },
   /** 
      * 滑动切换tab 
