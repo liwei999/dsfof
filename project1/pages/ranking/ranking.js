@@ -58,6 +58,7 @@ Page({
       }
 
     });
+    console.log(that.data.systemInfo.platform)
     that.getdata();
     
 
