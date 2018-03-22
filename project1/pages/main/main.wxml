@@ -1,6 +1,7 @@
 <!--pages/main/main.wxml-->
 <loading hidden="{{hiddenLoading}}">数据加载中...</loading>
 <view class='main'>
+ <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -52:(winHeight - 101)}}px;">  
    <view class='top'>
       <view class='top1'>
         <view class='top1_left'><text class='top_name'>张三</text><text class='top_title'>总投资:</text><text class="top_money">995315.00元</text>
@@ -29,17 +30,20 @@
            <!-- <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight - 268}}px;"> -->
             <!-- <view> -->
 
-            <view class="swiper_item">
+            <!-- <view class="swiper_item">
                <view class="swiper_item_content">
                 <view class="swiper_item_content_item item_left {{currentTab2==0 ? 'swiper_item_content_item_action' : ''}}"  data-current="0" bindtap="swichNav2">持有明细</view>
                 <view class="swiper_item_content_item {{currentTab2==1 ? 'swiper_item_content_item_action' : ''}}" data-current="1" bindtap="swichNav2">下单明细</view>
                 <view class="swiper_item_content_item item_right {{currentTab2==2 ? 'swiper_item_content_item_action' : ''}}" data-current="2" bindtap="swichNav2">成交明细</view>
                </view>
-            </view>
-             <swiper current="{{currentTab2}}" class="swiper-box" duration="300"  bindchange="bindChange2" style="height:{{winHeight - 271}}px;">  
-             <swiper-item> 
-                <scroll-view scroll-x="false" scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -271:(winHeight - 325)}}px;"> 
+            </view> -->
+             <!-- <swiper current="{{currentTab2}}" class="swiper-box" duration="300"  bindchange="bindChange2" style="height:{{winHeight - 271}}px;">   -->
+             <!-- <swiper-item>  -->
+                
              <view>
+             <view class='title'>
+             持有明细
+             </view>
               <view class="table_th">
                   <view class="th" style="width:31%">基金名称</view>
                   <view class="th">最新净值</view>
@@ -154,11 +158,11 @@
               </view>
              
              </view>
-              </scroll-view> 
-             </swiper-item>
+             
+             <!-- </swiper-item> -->
 
 
-             <swiper-item> 
+             <!-- <swiper-item> 
               <scroll-view scroll-x="false" scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -271:(winHeight - 325)}}px;"> 
              <view>
              <view class="table_th">
@@ -258,10 +262,10 @@
 
              </view>
              </scroll-view>
-             </swiper-item>
+             </swiper-item> -->
 
 
-             <swiper-item> 
+             <!-- <swiper-item> 
               <scroll-view scroll-x="false" scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -271:(winHeight - 325)}}px;"> 
              <view>
 
@@ -504,9 +508,9 @@
 
 
              </scroll-view>
-             </swiper-item>
+             </swiper-item> -->
 
-             </swiper>
+             <!-- </swiper> -->
 
 
             <!-- </view>   -->
@@ -523,10 +527,13 @@
       <!-- </swiper>   -->
         </view>
   <view class="foot">
-   <button class='btn'>购买基金</button>
+   <button class='btn' bindtap='click_single' data-clicks='1'>购买</button>
+   <button class='btn' bindtap='click_single' data-clicks='2'>下单明细</button>
+   <button class='btn' bindtap='click_single' data-clicks='3'>成交明细</button>
   </view>
-
+  </scroll-view> 
 </view>
+
 
 
 

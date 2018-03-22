@@ -85,19 +85,19 @@ Page({
   /** 
      * 滑动切换tab 
      */
-  bindChange: function (e) {
+  // bindChange: function (e) {
 
-    var that = this;
-    that.setData({ currentTab: e.detail.current });
+  //   var that = this;
+  //   that.setData({ currentTab: e.detail.current });
 
-  },
+  // },
 
-  bindChange2: function (e) {
+  // bindChange2: function (e) {
 
-    var that = this;
-    that.setData({ currentTab2: e.detail.current });
+  //   var that = this;
+  //   that.setData({ currentTab2: e.detail.current });
 
-  },
+  // },
   /**
    * 点击显示或者隐藏
    */
@@ -120,44 +120,68 @@ Page({
   /** 
    * 点击tab切换 
    */
-  swichNav: function (e) {
+  // swichNav: function (e) {
 
-    var that = this;
+  //   var that = this;
 
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current
-      })
-    }
-  },
-  swichNav2: function (e) {
+  //   if (this.data.currentTab === e.target.dataset.current) {
+  //     return false;
+  //   } else {
+  //     that.setData({
+  //       currentTab: e.target.dataset.current
+  //     })
+  //   }
+  // },
+//   swichNav2: function (e) {
 
-    var that = this;
-    console.log(this.data.currentTab2 + "," + e.target.dataset.current)
-    if (this.data.currentTab2 === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab2: e.target.dataset.current
+//     var that = this;
+//     console.log(this.data.currentTab2 + "," + e.target.dataset.current)
+//     if (this.data.currentTab2 === e.target.dataset.current) {
+//       return false;
+//     } else {
+//       that.setData({
+//         currentTab2: e.target.dataset.current
+//       });
+//       if (e.target.dataset.current==1)
+//       {
+//         wx.navigateTo({
+//           url: "../Singledetail/Singledetail?accountid=" + wx.getStorageSync("accountid")
+//         });
+//       }
+//       else if (e.target.dataset.current == 2)
+//       {
+//         wx.navigateTo({
+//           url: "../Dealdetail/Dealdetail?accountid=" + wx.getStorageSync("accountid")
+//         });
+
+//       }
+//     }
+//   }
+// ,
+/**
+ * 跳转购买基金1 下单明细2 成交明细为3 clicks
+ */
+  click_single:function(e){
+    if (e.target.dataset.clicks=='1')
+    {
+      wx.showToast({
+        title: '跳转购买',
       });
-      if (e.target.dataset.current==1)
-      {
-        wx.navigateTo({
-          url: "../Singledetail/Singledetail?accountid=" + wx.getStorageSync("accountid")
-        });
-      }
-      else if (e.target.dataset.current == 2)
-      {
-        wx.navigateTo({
-          url: "../Dealdetail/Dealdetail?accountid=" + wx.getStorageSync("accountid")
-        });
-
-      }
     }
-  }
-,
+    else if(e.target.dataset.clicks=='2')
+    {
+      wx.navigateTo({
+        url: "../Singledetail/Singledetail?accountid=" + wx.getStorageSync("accountid")
+      });
+    }
+    else
+    {
+      wx.navigateTo({
+        url: "../Dealdetail/Dealdetail?accountid=" + wx.getStorageSync("accountid")
+      });
+    }
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
