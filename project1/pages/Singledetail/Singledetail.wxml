@@ -1,5 +1,5 @@
 <!--pages/Singledetail/Singledetail.wxml-->
-
+<loading hidden="{{hiddenLoading}}">数据加载中...</loading>
  <view class="table_th">
                   <view class="th" style="width:31%">基金名称</view>
                   <view class="th">下单时间</view>
@@ -8,49 +8,39 @@
               </view>
  <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px;"> 
              <view>
-              <view class=".table_td table_xd_td">
+              <view class=".table_td table_xd_td" wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="RowId">
                   <view class="td" style="width:31%">
-                    <text class="fund_xd_first">中海可转债债券C</text>
+                    <text class="fund_xd_first">{{item.F_NAME}}</text>
                     <view class="fund_second_all">
-                    <text class="fund_second font_red">000004</text>
-                    <text class="fund_xd_second">待确认</text>
+                    <text class="fund_second font_red">{{item.F_Jysdm}}</text>
+                    <text class="fund_xd_second {{item.Audited_Status=='0'?'':'fund_xd_second_grey'}}">{{item.Audited_type}}</text>
                     </view>
                   </view>
                   <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
+                    <text class="fund_first fund_time_first" style="">{{item.year}}</text>
+                    <text class="fund_second fund_time_first">{{item.times}}</text>
                   </view>
                   <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">2222.77元</text>
+                    <text class="fund_first fund_type_first">{{item.Trade_Type}}</text>
+                    <text class="fund_second fund_money_second">{{item.AMOUNT}}元</text>
                     </view>
-                  <view class="td">
-                    <button class="fund_btn">取消</button>
+                  <view class="td" >
+                  <block wx:if="{{item.Audited_Status==1}}">
+                     <text class="fund_first fund_ok_first">{{item.UPDATE_DATE}}</text>
+                    <text class="fund_second fund_ok_first">确认</text>
+                  </block>
+                   <block wx:elif="{{item.Audited_Status==2}}">
+                      <text class="fund_second fund_ok_first">确认中</text>
+                  </block>
+                   <block wx:else>
+                        <button class="fund_btn">取消</button>
+                  </block>
                   </view>
               </view>
 
-              <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">中海可转债债券A</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000004</text>
-                    <text class="fund_xd_second">待确认</text>
-                    </view>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                    <button class="fund_btn">取消</button>
-                  </view>
-              </view>
+             
 
-               <view class=".table_td table_xd_td">
+               <!-- <view class=".table_td table_xd_td">
                   <view class="td" style="width:31%">
                     <text class="fund_xd_first">华夏成长</text>
                     <view class="fund_second_all">
@@ -70,191 +60,7 @@
                      <text class="fund_first fund_ok_first">16-03-03</text>
                     <text class="fund_second fund_ok_first">确认</text>
                   </view>
-              </view>
-
-               <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-
-                <view class=".table_td table_xd_td">
-                  <view class="td" style="width:31%">
-                    <text class="fund_xd_first">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_xd_second fund_xd_second_grey">已确认</text>
-                    </view>
-                  </view> 
-                  <view class="td">
-                    <text class="fund_first fund_time_first">16-03-03</text>
-                    <text class="fund_second fund_time_first">11:43:56</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first fund_type_first">申购前端</text>
-                    <text class="fund_second fund_money_second">1111.77元</text>
-                    </view>
-                  <view class="td">
-                     <text class="fund_first fund_ok_first">16-03-03</text>
-                    <text class="fund_second fund_ok_first">确认</text>
-                  </view>
-              </view>
-
-
+              </view> -->
 
              </view>
              </scroll-view>

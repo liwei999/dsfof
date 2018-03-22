@@ -15,7 +15,8 @@ Page({
     currentTab: 0,
     currentTab2: 0,
     pd:false,
-    systemInfo:{}
+    systemInfo:{},
+    hiddenLoading: true,//页面加载loading true不显示
   },
 
   /**
@@ -51,7 +52,8 @@ Page({
 
   getdata:function () {
     var that = this;
-    console.log(wx.getStorageSync("sessionid")+"sssss");
+    that.setData({ hiddenLoading: false });
+    //console.log(wx.getStorageSync("sessionid")+"sssss");
     wx.request({
       url: util.urlstr + '/Ashx/GetAccountId.ashx?rnddate=443',
       method: 'POST',
@@ -61,7 +63,13 @@ Page({
       },
       success: function (res) {
         console.log(res.data.data);
+        var datatemp = res.data.data;
         //toast(res)
+        if (datatemp.length>0)
+        {
+          wx.setStorageSync('accountid', datatemp[0].Account_Id)
+        }
+        
       }
       ,
       fail: function (res) {
@@ -134,6 +142,19 @@ Page({
       that.setData({
         currentTab2: e.target.dataset.current
       });
+      if (e.target.dataset.current==1)
+      {
+        wx.navigateTo({
+          url: "../Singledetail/Singledetail?accountid=" + wx.getStorageSync("accountid")
+        });
+      }
+      else if (e.target.dataset.current == 2)
+      {
+        wx.navigateTo({
+          url: "../Dealdetail/Dealdetail?accountid=" + wx.getStorageSync("accountid")
+        });
+
+      }
     }
   }
 ,

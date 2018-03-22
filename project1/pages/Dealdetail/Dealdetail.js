@@ -1,20 +1,57 @@
 // pages/Dealdetail/Dealdetail.js
+var util = require("../../utils/util.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    fundDetailsList: [],
+    hiddenLoading: false//页面加载loading true不显示
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    that.getdata(options.accountid);
   },
 
+  /**
+ * 获得数据
+ */
+  getdata: function (acc_id) {
+    //console.log(acc_id)
+    var that = this;
+    that.setData({ hiddenLoading: false });
+    wx.request({
+      url: util.urlstr + '/Ashx/GetAccountTradeList.ashx?otype=2&Account_Id=' + acc_id + '&_search=false&nd=' + parseInt(1000 * Math.random()) + '&rows=100&page=1&sidx=f_jysdm&sord=asc&json=1',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+
+        var tempdata = res.data.data;
+        if (tempdata.length > 0) {
+          console.log(tempdata)
+          that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
+
+        }
+
+      }
+      ,
+      fail: function (res) {
+        that.setData({ hiddenLoading: true });
+      },
+      complete: function (res) {
+        that.setData({ hiddenLoading: true });
+      }
+    })
+
+  }
+  ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
