@@ -6,7 +6,7 @@
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">名师高徒组</view>
   </view>
    
-  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{systemInfo.platform != 'android'?winHeight - 45:winHeight - 45-49}}px; ">
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{systemInfo.platform != 'android'?(winHeight - 45):(winHeight - 45-49)}}px; ">
     <!-- 理财师组 -->
     <swiper-item >
 
