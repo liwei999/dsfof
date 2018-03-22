@@ -8,7 +8,7 @@ var app = getApp()
 var rck = 'rememberCheck';
 var rui = 'rememberUserInfo';
 var loginList = 'loginList';
-var rbFlag = false;
+var rbFlag = true;
 
 Page({
   data: {
@@ -62,11 +62,7 @@ Page({
       userN: e.detail.value
     })
   },
-  // userPhoneInput: function (e) {
-  //   this.setData({
-  //     userP: e.detail.value
-  //   })
-  // },
+
   passWdInput: function (e) {
     this.setData({
       passW: e.detail.value
@@ -104,25 +100,63 @@ Page({
       toast('密码不能为空');
       return;
     }
-    /*if (userPhone == '') {
-      console.log("手机号不能为空");
-      toast('手机号不能为空');
-      return;
-    }*/
-
-    console.log(userName, passWd, rbFlag);
+    //console.log(userName, passWd, rbFlag);
 
     wx.showToast({
       title: '加载中',
       icon: 'loading'
-    })
+    });
 
     // 记住密码,你也可以放到请求数据成功的里面，这样用户输错信息，就不会记住错误的密码
     // 跳转带有tab的界面使用：wx.switchTab({ url: "../home/home" });
-   
-
     // 最后再进行MD5加密，这里假设数据请求成功直接跳转界面
     var request = true;
+
+    wx.request({
+      url: util.urlstr + '/Ashx/Login.ashx',
+      data: {
+        User_Name: this.data.userN,
+        PassWord: this.data.passW,
+        rememberLogin: true,
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'cookie': wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        if (res.errMsg === 'request:ok') {
+          console.log()
+          if (res.data=="1")
+          {
+            wx.setStorageSync("sessionid", res.header["Set-Cookie"])
+            var obj = new Object();
+            obj.name = that.data.userName;
+            obj.pswd = that.data.passWd;
+            obj.rbFlag = rbFlag;
+            console.log('obj', obj);
+            wx.setStorageSync(rui, obj);
+            //跳转到登录成功默认主页
+            wx.switchTab({
+              url: '../main/main',
+            });
+          }
+          else
+          {
+            toast("账号或密码错误！");
+          }
+          
+        }
+
+      },
+      fail: function (res) {
+        wx.showToast({
+          title:"登录异常，请重试！",
+          icon: 'loading',
+          duration: 3000
+        })
+      }
+    })
 
     // if (userName == "wuc" && passWd=="123")
     // {
@@ -216,50 +250,7 @@ Page({
     // })
   },
 
-  /**
-   * 登录
-   */
-  login: function (e) {
-    var that=this;
-    //Util.networkStatus()
-    wx.request({
-      url: util.urlstr+'/Ashx/Login.ashx',
-      data: {
-        User_Name: e.detail.value.userName,
-        PassWord: e.detail.value.password,
-        rememberLogin: true,
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'cookie':wx.getStorageSync("sessionid")
-      },
-      success: function (res) {
-        if (res.errMsg === 'request:ok') {
-          console.log(res)
-          wx.setStorageSync("sessionid", res.header["Set-Cookie"])
-          var obj = new Object();
-          obj.name = that.data.userName;
-          obj.pswd = that.data.passWd;
-          obj.rbFlag = rbFlag;
-          // obj.phone = userPhone;
-          console.log('obj', obj);
-          wx.setStorageSync(rui, obj);
-          wx.switchTab({
-            url: '../main/main',
-          });
-        }
-        
-      },
-      fail: function (res) {
-        wx.showToast({
-          title: res.errMsg,
-          icon: 'loading',
-          duration: 3000
-        })
-      }
-    })
-  }
+
 })
 function toast(toast) {
   wx.showToast({

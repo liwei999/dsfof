@@ -1,19 +1,29 @@
 
-<!--login.wxml-->
-<view class="body">
-  <form class='wrapper1'>
-    <image class="banner" src="../../image/banner.png"></image>
-  </form>
-</view>
 
-<view class="body wrapper">
-<!-- bindsubmit="login" -->
-  <form bindsubmit="login">
-    <input name="userName" bindinput="userNameInput" value="{{userName}}" placeholder="用户名/邮箱"/>
-    <input password name="password" bindinput="passWdInput" value="{{passWd}}" placeholder="密码"/>
-    <view class="useritemView-image" bindtap="rembUser">
-      <image src="{{image}}" class="user-image"></image>记住密码
-    </view>
-    <button type="primary" form-type="submit" bindtap="loginBtnClick">登录</button>
-  </form>
+<view class="container"> 
+ <view class="login-icon"> 
+ <image class="login-img" src="../../image/banner.png"></image> 
+ </view> 
+ <view class="login-from"> 
+  
+ <!--账号-->
+ <view class="inputView"> 
+  <image class="nameImage" src="../../image/login_user.png"></image> 
+  <label class="loginLab">账号</label> 
+  <input  name="userName" class="inputText" placeholder="请输入账号" bindinput="userNameInput" value="{{userName}}" /> 
+ </view> 
+ <view class="line"></view> 
+  
+ <!--密码-->
+ <view class="inputView"> 
+  <image class="keyImage" src="../../image/login_pass.png"></image> 
+  <label class="loginLab">密码</label> 
+  <input class="inputText" password="true" placeholder="请输入密码" name="password" bindinput="passWdInput" value="{{passWd}}"/> 
+ </view> 
+  
+ <!--按钮-->
+ <view class="loginBtnView"> 
+  <button class="loginBtn" type="primary" bindtap="loginBtnClick">登录</button> 
+ </view> 
+ </view> 
 </view>
