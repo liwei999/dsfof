@@ -8,7 +8,7 @@
 
 <view class="body wrapper">
 <!-- bindsubmit="login" -->
-  <form >
+  <form bindsubmit="login">
     <input name="userName" bindinput="userNameInput" value="{{userName}}" placeholder="用户名/邮箱"/>
     <input password name="password" bindinput="passWdInput" value="{{passWd}}" placeholder="密码"/>
     <view class="useritemView-image" bindtap="rembUser">

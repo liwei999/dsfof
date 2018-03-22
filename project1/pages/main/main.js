@@ -1,4 +1,5 @@
 // pages/main/main.js
+var util = require("../../utils/util.js");
 Page({
 
   /**
@@ -22,7 +23,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
+   
     /** 
      * 获取系统信息 
      */
@@ -45,7 +46,34 @@ Page({
       }
 
     });  
+    that.getdata();
   },
+
+  getdata:function () {
+    var that = this;
+    console.log(wx.getStorageSync("sessionid")+"sssss");
+    wx.request({
+      url: util.urlstr + '/Ashx/GetAccountId.ashx?rnddate=443',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'cookie':wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        console.log(res.data.data);
+        //toast(res)
+      }
+      ,
+      fail: function (res) {
+        that.setData({ hiddenLoading: true });
+      },
+      complete: function (res) {
+        that.setData({ hiddenLoading: true });
+      }
+    });
+
+  },
+
   /** 
      * 滑动切换tab 
      */
@@ -158,3 +186,10 @@ Page({
   
   }
 })
+
+function toast(toast) {
+  wx.showToast({
+    title: toast,
+    duration: 2000
+  })
+}

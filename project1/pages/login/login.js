@@ -1,4 +1,6 @@
 // pages/yiwo/login/login.js
+
+var util = require("../../utils/util.js");
 //index.js
 //获取应用实例
 var app = getApp()
@@ -11,11 +13,11 @@ var rbFlag = false;
 Page({
   data: {
     infoMess: '',
-    userN: '',
+    userN: '13506179761',
     // userP: '',
-    passW: '',
-    userName: 'wuc',
-    passWd: '123',
+    passW: 'dsjj_zgx_check',
+    userName: '13506179761',
+    passWd: 'dsjj_zgx_check',
     // userPhone: '',
     loginToast: true,
     showTipTxt: '',
@@ -122,34 +124,34 @@ Page({
     // 最后再进行MD5加密，这里假设数据请求成功直接跳转界面
     var request = true;
 
-    if (userName == "wuc" && passWd=="123")
-    {
-      var obj = new Object();
-      obj.name = userName;
-      obj.pswd = passWd;
-      obj.rbFlag = rbFlag;
-      // obj.phone = userPhone;
-      console.log('obj', obj);
-      wx.setStorageSync(rui, obj);
-      wx.switchTab({
-        url: '../main/main',
-      })
-    }
-    else
-    {
-      toast('用户名密码错误');
-      this.setData({
-        passWd: ""
-      })
-      var obj = new Object();
-      obj.name = userName;
-      obj.pswd = "";
-      obj.rbFlag = rbFlag;
-      // obj.phone = userPhone;
-      console.log('obj', obj);
-      wx.setStorageSync(rui, obj);
-      return;
-    }
+    // if (userName == "wuc" && passWd=="123")
+    // {
+    //   var obj = new Object();
+    //   obj.name = userName;
+    //   obj.pswd = passWd;
+    //   obj.rbFlag = rbFlag;
+    //   // obj.phone = userPhone;
+    //   console.log('obj', obj);
+    //   wx.setStorageSync(rui, obj);
+    //   wx.switchTab({
+    //     url: '../main/main',
+    //   })
+    // }
+    // else
+    // {
+    //   toast('用户名密码错误');
+    //   this.setData({
+    //     passWd: ""
+    //   })
+    //   var obj = new Object();
+    //   obj.name = userName;
+    //   obj.pswd = "";
+    //   obj.rbFlag = rbFlag;
+    //   // obj.phone = userPhone;
+    //   console.log('obj', obj);
+    //   wx.setStorageSync(rui, obj);
+    //   return;
+    // }
     // if (request) {
     //   wx.navigateTo({
     //     url: "../index/index?" +
@@ -218,44 +220,36 @@ Page({
    * 登录
    */
   login: function (e) {
-    Util.networkStatus()
+    var that=this;
+    //Util.networkStatus()
     wx.request({
-      url: '',
+      url: util.urlstr+'/Ashx/Login.ashx',
       data: {
-        nameOrEmail: e.detail.value.userName,
-        userPassword: calcMD5(e.detail.value.password),
+        User_Name: e.detail.value.userName,
+        PassWord: e.detail.value.password,
         rememberLogin: true,
       },
       method: 'POST',
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded',
+        'cookie':wx.getStorageSync("sessionid")
       },
       success: function (res) {
-        if (res.errMsg !== 'request:ok') {
-          wx.showToast({
-            title: res.errMsg,
-            icon: 'loading',
-            duration: 3000
-          })
-          return false;
+        if (res.errMsg === 'request:ok') {
+          console.log(res)
+          wx.setStorageSync("sessionid", res.header["Set-Cookie"])
+          var obj = new Object();
+          obj.name = that.data.userName;
+          obj.pswd = that.data.passWd;
+          obj.rbFlag = rbFlag;
+          // obj.phone = userPhone;
+          console.log('obj', obj);
+          wx.setStorageSync(rui, obj);
+          wx.switchTab({
+            url: '../main/main',
+          });
         }
-        if (!res.data.sc) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'loading',
-            duration: 3000
-          })
-          return false;
-        }
-
-        wx.setStorage({
-          key: "cookie",
-          data: res.data.token
-        })
-
-        wx.redirectTo({
-          url: '../scan/scan'
-        })
+        
       },
       fail: function (res) {
         wx.showToast({
