@@ -45,6 +45,24 @@
 					"name": "持有基金详细",
 					"pathName": "pages/fundDetails/fundDetails",
 					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "tesy",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Singledetail",
+					"pathName": "pages/Singledetail/Singledetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Dealdetail",
+					"pathName": "pages/Dealdetail/Dealdetail",
+					"query": ""
 				}
 			]
 		}

@@ -1,0 +1,227 @@
+<!--pages/Dealdetail/Dealdetail.wxml-->
+<scroll-view scroll-x="false" scroll-y="true" style="height:100%;"> 
+             <view>
+              <view class="row_mx">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">华夏成长</text>
+                  <text class='font_red font_12'>000001</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>1.0410</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>100000.00元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间:</text>
+                  <text>16-03-02 9:34:22</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型:</text>
+                  <text>申购前端</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额:</text>
+                  <text>90000.00份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费:</text>
+                  <text>1000.00元</text>
+                </view>
+               </view>
+              </view>
+
+
+              <view class="row_mx">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">华夏成长</text>
+                  <text class='font_red font_12'>000001</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>1.0410</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>100000.00元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间:</text>
+                  <text>16-03-02 9:34:22</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型:</text>
+                  <text>申购前端</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额:</text>
+                  <text>90000.00份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费:</text>
+                  <text>1000.00元</text>
+                </view>
+               </view>
+              </view>
+
+
+
+              <view class="row_mx">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">华夏成长</text>
+                  <text class='font_red font_12'>000001</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>1.0410</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>100000.00元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间:</text>
+                  <text>16-03-02 9:34:22</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型:</text>
+                  <text>申购前端</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额:</text>
+                  <text>90000.00份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费:</text>
+                  <text>1000.00元</text>
+                </view>
+               </view>
+              </view>
+
+
+              <view class="row_mx">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">华夏成长</text>
+                  <text class='font_red font_12'>000001</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>1.0410</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>100000.00元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间:</text>
+                  <text>16-03-02 9:34:22</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型:</text>
+                  <text>申购前端</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额:</text>
+                  <text>90000.00份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费:</text>
+                  <text>1000.00元</text>
+                </view>
+               </view>
+              </view>
+
+
+
+              <view class="row_mx">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">华夏成长</text>
+                  <text class='font_red font_12'>000001</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>1.0410</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>100000.00元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间:</text>
+                  <text>16-03-02 9:34:22</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型:</text>
+                  <text>申购前端</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额:</text>
+                  <text>90000.00份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费:</text>
+                  <text>1000.00元</text>
+                </view>
+               </view>
+              </view>
+
+
+             <view class="row_mx">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">华夏沪深300ETF</text>
+                  <text class='font_red font_12'>000051</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>1.0410</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>100000.00元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间:</text>
+                  <text>16-03-02 9:34:22</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型:</text>
+                  <text>申购前端</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额:</text>
+                  <text>90000.00份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费:</text>
+                  <text>1000.00元</text>
+                </view>
+               </view>
+              </view>
+             </view>
+             </scroll-view>
