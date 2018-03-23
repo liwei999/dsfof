@@ -100,6 +100,8 @@ Page({
   //发送购买数据
   SendData: function ()  //修改密码
   {
+    var pages = getCurrentPages();
+    var prePage = pages[pages.length - 2];
     var that = this;
     if (that.data.jysdm=="")
     {
@@ -130,7 +132,13 @@ Page({
         if (res.errMsg === 'request:ok') {
           if (res.data == "4") {
             //关闭窗口，更新主界面数据
-            util.toast("添加成功")
+            util.toast("添加成功");
+            //执行上一页的重载方法
+            prePage.get_information();
+            //后退
+            wx.navigateBack({
+              delta: -1
+            });
             // that.get_information();
             // that.setData({ buyMoney: "", Memo: '', inputVal: "", jysdm: "", fundList: []});
           }
