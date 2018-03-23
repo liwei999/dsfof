@@ -246,9 +246,12 @@ Page({
   click_single:function(e){
     if (e.target.dataset.clicks=='1')
     {
-      wx.showToast({
-        title: '跳转购买',
-      });
+      // wx.showToast({
+      //   title: '跳转购买',
+      // });
+      wx.navigateTo({
+        url: '../buy/buy',
+      })
     }
     else if(e.target.dataset.clicks=='2')
     {
