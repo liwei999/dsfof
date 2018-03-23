@@ -14,7 +14,7 @@ Page({
     // tab切换  
     currentTab: 0,
     currentTab2: 0,
-    pd:0,//默认展开第一项
+    pd:-1,//0默认展开第一项
     systemInfo:{},
     hiddenLoading: false,//页面加载loading true不显示
     acc_information:{},//详细数据
@@ -246,9 +246,12 @@ Page({
   click_single:function(e){
     if (e.target.dataset.clicks=='1')
     {
-      wx.showToast({
-        title: '跳转购买',
-      });
+      // wx.showToast({
+      //   title: '跳转购买',
+      // });
+      wx.navigateTo({
+        url: '../buy/buy',
+      })
     }
     else if(e.target.dataset.clicks=='2')
     {
