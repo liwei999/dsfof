@@ -111,9 +111,6 @@ Page({
   //发送取消下单数据
   SendData: function (record_id,account_id)  //修改密码
   {
-    //console.log(this.data.pub_account_Id);
-    //console.log(record_id);
-    //return;
     var that = this;
     wx.request({
       url: util.urlstr + '/Ashx/AddAuditTradeList.ashx',

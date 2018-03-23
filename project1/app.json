@@ -10,7 +10,9 @@
     "pages/buy/buy",
     "pages/fundDetails/fundDetails",
     "pages/Singledetail/Singledetail",
-    "pages/Dealdetail/Dealdetail"
+    "pages/Dealdetail/Dealdetail",
+    "pages/Redemptive/Redemptive",
+    "pages/MoveInto/MoveInto"
   ],
   "window": {
     "backgroundTextStyle": "light",
