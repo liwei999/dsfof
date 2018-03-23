@@ -57,7 +57,7 @@ Page({
       },
       fail: function (res) {
         wx.showToast({
-          title: "网络异常，请重试！",
+          title: "网络异常，请重试",
           icon: 'loading',
           duration: 3000
         })
