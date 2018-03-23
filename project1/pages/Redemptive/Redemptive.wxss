@@ -1,0 +1,61 @@
+/* pages/buy/buy.wxss */
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: #f9f9f9;  
+}
+.group{
+	display: block;
+	width: 100%;
+}
+.group-body{
+	background: #fff;
+  margin-top: 20rpx;
+}
+.group-body .input-list{
+	margin: 0;
+	border: none;
+}
+.input-list{
+	padding: 0 30rpx;
+}
+.input-list .input-item{
+	padding: 20rpx 0rpx;
+	line-height: 2;
+	display: flex;
+	font-size: 30rpx;
+	border-top: 1rpx solid #e4e6e6;
+}
+.input-list .input-item:first-child{
+	border-top: 0;
+}
+.input-item-label{
+	display: block;
+	width: 5em;
+}
+.input-item-content{
+	flex:1;
+  font-size: 28rpx;
+  padding-top: 8rpx;
+}
+.input-item.input-item-full{
+	display: block;
+}
+.input-item-full textarea{
+	height: 150rpx;
+	border: 1rpx solid #e8e8e8;
+	padding: 10rpx;
+}
+.btn-submit{
+	padding: 50rpx;
+  margin-top: 100rpx;
+  font-size: 32rpx;
+}
+.btn-block{
+	width: 100%;
+	line-height: 88rpx;
+}
+.btn-orange{
+	background: #1AAD19;
+	color: #fff;
+}

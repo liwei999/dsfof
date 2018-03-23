@@ -18,7 +18,7 @@ Page({
     systemInfo:{},
     hiddenLoading: false,//页面加载loading true不显示
     acc_information:{},//详细数据
-    fundDetailsList: [],
+    fundDetailsList: []
   },
 
   /**
@@ -39,12 +39,7 @@ Page({
         });
 
         console.log(that.data.winHeight, that.data.systemInfo.platform);
-        // wx.showToast({
-        //   title: '' + that.data.winHeight,
-        //   icon: 'succes',
-        //   duration: 5000,
-        //   mask: true
-        // })
+
       }
 
     });  
@@ -76,7 +71,8 @@ Page({
         if (datatemp.length>0)
         {
           //保存accountid
-          wx.setStorageSync('accountid', datatemp[0].Account_Id)
+          wx.setStorageSync('accountid', datatemp[0].Account_Id);
+          
         }
         
       }
@@ -280,6 +276,38 @@ Page({
     wx.switchTab({
       url: '../ranking/ranking',
     });
+  },
+  //赎回基金
+  Redemptive:function(e)
+  {
+    var parm = { 
+      f_jysdm: e.currentTarget.dataset.jysdm, 
+      f_name: e.currentTarget.dataset.name,
+      f_volume: e.currentTarget.dataset.volume
+    };
+    wx.navigateTo({
+      url: '../Redemptive/Redemptive?parm='+JSON.stringify(parm)  
+    })
+  },
+  //转投基金
+  MoveInto:function(e)
+  {
+    var parm = {
+      f_jysdm: e.currentTarget.dataset.jysdm,
+      f_name: e.currentTarget.dataset.name,
+      f_volume: e.currentTarget.dataset.volume
+    };
+    wx.navigateTo({
+      url: '../MoveInto/MoveInto?parm='+JSON.stringify(parm)  
+    })
+  },
+
+  //重新载入持有基金数据
+  ReloadData: function (name) {
+    this.setData({
+      fundDetailsList: []
+    })
+    this.getcydata();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

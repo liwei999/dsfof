@@ -21,12 +21,12 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
 		"plugin": {
 			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -57,10 +57,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "Singledetail",
 					"pathName": "pages/Singledetail/Singledetail",
-					"query": ""
+					"query": "accountid=2912"
 				},
 				{
 					"id": -1,
@@ -79,6 +79,12 @@
 					"name": "buy",
 					"pathName": "pages/buy/buy",
 					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "赎回基金",
+					"pathName": "pages/Redemptive/Redemptive",
+					"query": "Jysdm=519008"
 				}
 			]
 		}
