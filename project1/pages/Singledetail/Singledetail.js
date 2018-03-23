@@ -8,7 +8,8 @@ Page({
   data: {
     winHeight: 0,
     fundDetailsList:[],
-    hiddenLoading: false//页面加载loading true不显示
+    hiddenLoading: false,//页面加载loading true不显示
+    pub_account_Id:0
   },
 
   /**
@@ -25,6 +26,7 @@ Page({
       success: function (res) {
         that.setData({
           winHeight: res.windowHeight,
+          pub_account_Id: options.accountid
         });
 
       }
@@ -76,7 +78,6 @@ Page({
           that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
 
         }
-       
       }
       ,
       fail: function (res) {
@@ -89,7 +90,66 @@ Page({
 
   }
   ,
+  //取消下单
+  UndoTrading:function(e)
+  {
+    var _this = this;
+    console.log(e);
+    wx.showModal({
+      title: '提示',
+      content: '确定取消此次交易吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          _this.SendData(e.currentTarget.dataset.rowid, _this.data.pub_account_Id);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  //发送取消下单数据
+  SendData: function (record_id,account_id)  //修改密码
+  {
+    //console.log(this.data.pub_account_Id);
+    //console.log(record_id);
+    //return;
+    var that = this;
+    wx.request({
+      url: util.urlstr + '/Ashx/AddAuditTradeList.ashx',
+      data: {
+        id:record_id,
+        otype:'delete',
+        devi_type:1,
+        Account_Id:account_id
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'cookie': wx.getStorageSync("sessionid")
+      },
+      success: function (res) {
+        if (res.errMsg === 'request:ok') {
+          if (res.data == "DeleteOk") {
+            that.setData({ fundDetailsList: [] });
+            //重新载入此页数据
+            that.getdata(account_id);
+          }
+          else {
+            toast("数据提交失败,请重试");
+          }
+        }
 
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: "网络异常，请重试！",
+          icon: 'loading',
+          duration: 3000
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

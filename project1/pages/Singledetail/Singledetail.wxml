@@ -4,7 +4,7 @@
                   <view class="th" style="width:31%">基金名称</view>
                   <view class="th">下单时间</view>
                   <view class="th">操作类型</view>
-                  <view class="th"></view>
+                  <view class="th">状态</view>
               </view>
  <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px;"> 
              <view>
@@ -22,18 +22,23 @@
                   </view>
                   <view class="td">
                     <text class="fund_first fund_type_first">{{item.Trade_Type}}</text>
-                    <text class="fund_second fund_money_second">{{item.AMOUNT}}元</text>
+                    <block wx:if="{{item.Trade_Type=='赎回'}}">
+                      <text class="fund_second fund_money_second">{{item.VOLUME}}份</text>
+                    </block>
+                    <block wx:else>
+                     <text class="fund_second fund_money_second">{{item.AMOUNT}}元</text>
+                    </block>
                     </view>
                   <view class="td" >
                   <block wx:if="{{item.Audited_Status==1}}">
                      <text class="fund_first fund_ok_first">{{item.UPDATE_DATE}}</text>
-                    <text class="fund_second fund_ok_first">确认</text>
+                    <text class="fund_second fund_ok_first">已确认</text>
                   </block>
                    <block wx:elif="{{item.Audited_Status==2}}">
                       <text class="fund_second fund_ok_first">确认中</text>
                   </block>
                    <block wx:else>
-                        <button class="fund_btn">取消</button>
+                        <button class="fund_btn" bindtap="UndoTrading" data-rowid='{{item.RowId}}' >取消</button>
                   </block>
                   </view>
               </view>
