@@ -5,8 +5,16 @@
     <view class="input-item">
       <text class="input-item-label">基金名称</text>
       <view class="input-item-content">
-        <input type="text" placeholder="请输入基金名称\代码\拼音"></input>
+        <input type="text" placeholder="请输入基金名称\代码\拼音" value="{{inputVal}}"  bindinput="inputTyping"></input>
       </view>
+    </view>
+    <view class='fund_all {{showlist?"":"hidden"}}'>
+    <view class='fund_list' >
+        <view class='fund_item' wx:for="{{fundList}}" wx:for-item="item" wx:key="f_jysdm" hover-class="weui-cell_active" bindtap='clickFund' data-fundname='{{item.f_name}}' data-fundcode='{{item.f_jysdm}}' >
+        <text>{{item.f_jysdm}}</text>
+        <text>{{item.f_name}}</text>
+        </view>
+    </view>
     </view>
     <view class="input-item">
       <text class="input-item-label">可用余额</text>
@@ -17,12 +25,12 @@
     <view class="input-item">
       <text class="input-item-label">买入金额</text>
       <view class="input-item-content">
-        <input type="digit" placeholder="请输入购买金额" name="tb_buyMoney" bindinput="InpuBuyMoney"></input>
+        <input type="digit" placeholder="请输入购买金额" name="tb_buyMoney" bindinput="InpuBuyMoney" value='{{buyMoney}}'></input>
       </view>
     </view>
     <view class="input-item input-item-full">
       <text class="input-item-label">操作备注</text>
-      <textarea name="memo" placeholder="操作备注(选填)" maxlength="50" bindinput="InpuBz"></textarea>
+      <textarea name="memo" placeholder="操作备注"  maxlength="50" bindinput="InpuBz" value='{{Memo}}'></textarea>
     </view>
   </view>
 </view>

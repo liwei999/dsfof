@@ -59,3 +59,31 @@ page {
 	background: #1AAD19;
 	color: #fff;
 }
+.fund_all{ position: relative;}
+.fund_list{
+   margin-top:1px;
+   font-size:14px;
+   background-color:#fff;
+   position:absolute;
+   width: 79%;
+   left: 20%;
+   border: 2px solid #e4e6e6;
+   z-index: 9999;
+}
+.fund_item:first-child{
+	border-top: 0;
+}
+.fund_item{
+ padding: 5px 5px;
+ border-top: 1px solid #e4e6e6;
+ color: #006f93;
+ display: flex;
+ flex-direction: row;
+
+}
+.fund_item text:first-child{width: 30%;}
+.fund_item text{ width: 70%; display: block; }
+.weui-cell_active {
+  background-color: #ECECEC;
+}
+.hidden{ display: none;}

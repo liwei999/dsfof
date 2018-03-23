@@ -24,6 +24,7 @@ Page({
       Account_Type: e.detail.current,
       //temp: e.detail.current==0?'团队':'理财师'
        });
+    console.log(that.data.Account_Type, that.data.MSGTRankingList.length);
     if ((that.data.Account_Type == 0 && that.data.LCSRankingList.length == 0) || (that.data.Account_Type == 1 && that.data.MSGTRankingList.length == 0)) {
         that.getdata()
         console.log("ssssss");
@@ -76,10 +77,12 @@ Page({
         console.log(res);
         if (that.data.Account_Type==0)
         {
+        that.setData({ LCSRankingList: []});
         that.setData({ LCSRankingList: that.data.LCSRankingList.concat(res.data.data), hiddenLoading: true });
         }
         else
         {
+          that.setData({ MSGTRankingList: [] });
           that.setData({ MSGTRankingList: that.data.MSGTRankingList.concat(res.data.data), hiddenLoading: true });
 
         }
