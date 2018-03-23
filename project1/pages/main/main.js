@@ -14,9 +14,11 @@ Page({
     // tab切换  
     currentTab: 0,
     currentTab2: 0,
-    pd:false,
+    pd:0,//默认展开第一项
     systemInfo:{},
-    hiddenLoading: true,//页面加载loading true不显示
+    hiddenLoading: false,//页面加载loading true不显示
+    acc_information:{},//详细数据
+    fundDetailsList: [],
   },
 
   /**
@@ -24,7 +26,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-   
     /** 
      * 获取系统信息 
      */
@@ -47,15 +48,22 @@ Page({
       }
 
     });  
+    //console.log(1)
     that.getdata();
+    //console.log(2)
+    that.get_information();
+    //console.log(3)
+    that.getcydata();
+    that.setData({ hiddenLoading: true });
   },
-
+//获得Account_Id
   getdata:function () {
+    //console.log(4)
     var that = this;
-    that.setData({ hiddenLoading: false });
+    
     //console.log(wx.getStorageSync("sessionid")+"sssss");
     wx.request({
-      url: util.urlstr + '/Ashx/GetAccountId.ashx?rnddate=443',
+      url: util.urlstr + '/Ashx/GetAccountId.ashx?rnddate=' + parseInt(1000 * Math.random()),
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -67,21 +75,92 @@ Page({
         //toast(res)
         if (datatemp.length>0)
         {
+          //保存accountid
           wx.setStorageSync('accountid', datatemp[0].Account_Id)
         }
         
       }
       ,
       fail: function (res) {
-        that.setData({ hiddenLoading: true });
+        
       },
       complete: function (res) {
-        that.setData({ hiddenLoading: true });
+        
       }
     });
 
   },
+  //获得理财师信息
+  get_information:function(){
+    //console.log(5);
+    var that=this;
+    wx.request({
+      url: util.urlstr + '/Ashx/GetAccountInfo.ashx',
+      method: 'POST',
+      data: {
+        Account_Id: wx.getStorageSync("accountid"),
+        rnddate: parseInt(1000 * Math.random())
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      
+      success: function (res) {
+        var tempdata = res.data.data;
+        var rif = wx.getStorageSync("rememberUserInfo");
+        var temp_acc_information={};
+        if (tempdata.length>0)
+        {
+          temp_acc_information.name = rif.name;//客户名称
+          temp_acc_information.Assets = tempdata[0].Assets;//总投资
+          temp_acc_information.Left_Amount = tempdata[0].Left_Amount;//可用资金
+          temp_acc_information.OrderId = tempdata[0].OrderId;//排名
+          temp_acc_information.Profits = tempdata[0].Profits;//总收益
+          temp_acc_information.Rates = tempdata[0].Rates;//总收益率
+          that.setData({ acc_information: temp_acc_information});
+        }
+        
+      },
+      fail: function (res) {
+        
+      },
+      complete: function (res) {
+       
+      }
+    });
+  },
+  /**
+   * 获得数据持有明细
+   */
+  getcydata: function () {
+    var that = this;
+    that.setData({ hiddenLoading: false });
+    wx.request({
+      url: util.urlstr + '/Ashx/GetAccountTradeList.ashx?otype=3&Account_Id=' + wx.getStorageSync("accountid") + '&_search=false&nd=' + parseInt(1000 * Math.random()) + '&rows=100&page=1&sidx=f_jysdm&sord=asc&json=1',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        var tempdata = res.data.data;
+        if (tempdata.length > 0) {
+          console.log(tempdata)
+          that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
 
+        }
+
+      }
+      ,
+      fail: function (res) {
+      
+      },
+      complete: function (res) {
+       
+      }
+    })
+
+  }
+,
   /** 
      * 滑动切换tab 
      */
@@ -104,15 +183,18 @@ Page({
   detailed_showe:function(e)
   {
     var that =this;
-    if (that.data.pd)
+    var dataindex = e.currentTarget.id;
+    //console.log(e)
+
+    if (that.data.pd==dataindex)
     {
       that.setData({
-        pd:false
+        pd:-1
       });
     }
     else{
       that.setData({
-        pd: true
+        pd: dataindex
       });
     }
   },
@@ -181,6 +263,20 @@ Page({
       });
     }
 
+  },
+  /**
+   * 跳转排行
+   * 
+   */
+  clicktzph:function(e)
+  {
+    console.log(e)
+    // wx.navigateTo({
+    //   url: '../pages/rangking/rangking',
+    // })
+    wx.switchTab({
+      url: '../ranking/ranking',
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

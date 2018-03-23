@@ -1,19 +1,19 @@
 <!--pages/main/main.wxml-->
 <loading hidden="{{hiddenLoading}}">数据加载中...</loading>
 <view class='main'>
- <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -52:(winHeight - 101)}}px;">  
+ <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -60:(winHeight - 109)}}px;">  
    <view class='top'>
       <view class='top1'>
-        <view class='top1_left'><text class='top_name'>张三</text><text class='top_title'>总投资:</text><text class="top_money">995315.00元</text>
+        <view class='top1_left'><text class='top_name'>{{acc_information.name}}</text><text class='top_title'>总投资:</text><text class="top_money">{{acc_information.Assets}}元</text>
         </view>
-        <view class='top1_right'><text class='top_pm'>第一名</text><text class='top_more'>></text>
+        <view class='top1_right' bindtap='clicktzph'><text class='top_pm'>第{{acc_information.OrderId}}名</text><text class='top_more'>></text>
         </view>
       </view>
       <view class='top2'>
-      <view class='top2_line'><text>可用资金:</text><text>333333.75</text>元</view>
+      <view class='top2_line'><text>可用资金:</text><text>{{acc_information.Left_Amount}}</text>元</view>
       <view class='top2_client'> 
-      <view class='top2_client_left'><text class='top2_client_left_money'>-4685.00</text><text class='top2_client_left_dw'>元</text><text style='display:block;'>总收益</text></view>
-      <view class='top2_client_right'><text class='top2_client_left_money'>-0.48</text><text class='top2_client_left_dw'>%</text><text style='display:block;'>总收益率</text></view>
+      <view class='top2_client_left'><text class='top2_client_left_money {{acc_information.Profits>0?"font_red":"font_green"}}'>{{acc_information.Profits}}</text><text class='top2_client_left_dw {{acc_information.Profits>0?"font_red":"font_green"}}'>元</text><text style='display:block;'>总收益</text></view>
+      <view class='top2_client_right'><text class='top2_client_left_money {{acc_information.Rates>0?"font_red":"font_green"}}'>{{acc_information.Rates}}</text><text class='top2_client_left_dw {{acc_information.Rates>0?"font_red":"font_green"}}'>%</text><text style='display:block;'>总收益率</text></view>
       </view>
       </view>
    </view>
@@ -50,8 +50,61 @@
                   <view class="th">日收益</view>
                   <view class="th">总收益</view>
               </view>
+              <view wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Id">
+              <view class="table_td" bindtap='detailed_showe' id="{{index}}">
+                  <view class="td" style="width:31%">
+                    <text class="fund_first fund_first_name">{{item.f_name}}</text>
+                    <view class="fund_second_all">
+                    <text class="fund_second font_red">{{item.f_jysdm}}</text>
+                    <text class="fund_second">{{item.F_type}}</text>
+                    </view>
+                  </view>
+                  <view class="td">
+                    <text class="fund_first">{{item.Nv}}</text>
+                    <text class="fund_second">{{item.F_Date}}</text>
+                  </view>
+                  <view class="td">
+                    <text class="fund_first {{item.dRate>0?'font_red':'font_green'}}">{{item.dRate}}%</text>
+                    <text class="fund_second">{{item.dProfit}}元</text>
+                    </view>
+                  <view class="td">
+                    <text class="fund_first {{item.Rate>0?'font_red':'font_green'}}">{{item.Rate}}%</text>
+                    <text class="fund_second {{item.Profit>0?'font_red':'font_green'}}">{{item.Profit}}元</text>
+                  </view>
+              </view>
 
-              <view class="table_td" bindtap='detailed_showe'>
+              <view class="{{index==pd?'':'hidden'}}">
+                <view class="detailed">
+                 <view class="detailed_left">
+                  <view>
+                  <text>总资产:</text><text>{{item.Market_value}}元</text>
+                  </view>
+                  <view> 
+                  <text decode="{{true}}">分&nbsp;&nbsp;&nbsp;红:</text><text class="font_red">0.00元</text>
+                  </view>
+                 </view>
+                 
+                 <view class="detailed_right">
+                  <view>
+                 <text>持有份额:</text><text>{{item.Volume}}份</text>
+                  </view>
+                  <view>
+                  <text>买入日期:</text><text>{{item.fir_date}}</text>
+                  </view>
+                 </view>
+                </view>
+
+                <view class='cz'>
+                  <button class="btn_sh"><image src='../../image/sh.png' style='width: 16.5px;height: 15px;'></image>赎回</button>
+                  <button class="btn_zt"><image src='../../image/zt.png' style='width: 15px;height: 15px;'></image>转投</button>
+                </view>
+
+                 <view>
+                
+                </view>
+              </view>
+              </view>
+              <!-- <view class="table_td" bindtap='detailed_showe'>
                   <view class="td" style="width:31%">
                     <text class="fund_first fund_first_name">华夏成长</text>
                     <view class="fund_second_all">
@@ -102,60 +155,7 @@
                  <view>
                 
                 </view>
-              </view>
-
-              <view class="table_td" bindtap='detailed_showe'>
-                  <view class="td" style="width:31%">
-                    <text class="fund_first fund_first_name">华夏成长</text>
-                    <view class="fund_second_all">
-                    <text class="fund_second font_red">000001</text>
-                    <text class="fund_second">偏股混合</text>
-                    </view>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first">1.0530</text>
-                    <text class="fund_second">16-03-03</text>
-                  </view>
-                  <view class="td">
-                    <text class="fund_first font_red">0.13%</text>
-                    <text class="fund_second">412.77元</text>
-                    </view>
-                  <view class="td">
-                    <text class="fund_first font_green">-5.23%</text>
-                    <text class="fund_second font_green">630.77元</text>
-                  </view>
-              </view>
-
-              <view class="{{pd?'':'hidden'}}">
-                <view class="detailed">
-                 <view class="detailed_left">
-                  <view>
-                  <text>总资产:</text><text>154299.97元</text>
-                  </view>
-                  <view> 
-                  <text decode="{{true}}">分&nbsp;&nbsp;&nbsp;红:</text><text class="font_red">0.00元</text>
-                  </view>
-                 </view>
-                 
-                 <view class="detailed_right">
-                  <view>
-                 <text>持有份额:</text><text>94770.00份</text>
-                  </view>
-                  <view>
-                  <text>买入日期:</text><text>14-05-12</text>
-                  </view>
-                 </view>
-                </view>
-
-                <view class='cz'>
-                  <button class="btn_sh"><image src='../../image/sh.png' style='width: 16.5px;height: 15px;'></image>赎回</button>
-                  <button class="btn_zt"><image src='../../image/zt.png' style='width: 15px;height: 15px;'></image>转投</button>
-                </view>
-
-                 <view>
-                
-                </view>
-              </view>
+              </view> -->
              
              </view>
              
