@@ -1,0 +1,32 @@
+
+<form bindsubmit="formSubmit" bindreset="Reset">
+<view class="group-body">
+  <view class="input-list">
+    <view class="input-item">
+      <text class="input-item-label">基金名称</text>
+      <view class="input-item-content">
+        <text name='left_amount'>{{F_Name}}</text>
+      </view>
+    </view>
+    <view class="input-item">
+      <text class="input-item-label">可赎份额</text>
+      <view class="input-item-content">
+        <text name='left_amount'>{{leftVolume}}</text>
+      </view>
+    </view>
+    <view class="input-item">
+      <text class="input-item-label">赎回份额</text>
+      <view class="input-item-content">
+        <input type="digit" placeholder="请输入赎回份额" name="tb_Volume" bindinput="InpuVolume"></input>
+      </view>
+    </view>
+    <view class="input-item input-item-full">
+      <text class="input-item-label">操作备注</text>
+      <textarea name="memo" placeholder="操作备注(选填)" maxlength="50" bindinput="InpuBz"></textarea>
+    </view>
+  </view>
+</view>
+<view class="btn-submit">
+  <button class="btn-block btn-orange" bindtap="SendData">提交</button>
+</view>
+</form>
