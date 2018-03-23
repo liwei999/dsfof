@@ -1,11 +1,14 @@
 // pages/Singledetail/Singledetail.js
+var util = require("../../utils/util.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    winHeight: 0
+    winHeight: 0,
+    fundDetailsList:[],
+    hiddenLoading: false//页面加载loading true不显示
   },
 
   /**
@@ -13,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
+  //that.setData({ hiddenLoading: false });
     /** 
      * 获取系统信息 
      */
@@ -26,8 +29,66 @@ Page({
 
       }
 
-    });  
+    }); 
+
+    that.getdata(options.accountid) ;
   },
+
+  /**
+ * 获得数据
+ */
+  getdata: function (acc_id) {
+    //console.log(acc_id)
+    var that = this;
+    that.setData({ hiddenLoading: false });
+    wx.request({
+      url: util.urlstr + '/Ashx/GetAccountTradeList.ashx?otype=1&Account_Id=' + acc_id + '&_search=false&nd=' + parseInt(1000 * Math.random())+'&rows=100&page=1&sidx=f_jysdm&sord=asc&json=1',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        
+        var tempdata = res.data.data;
+        if (tempdata.length>0)
+        {
+          for (var i = 0; i < tempdata.length; i++) {
+            if (tempdata[i].Created_Time!="")
+            {
+              var time = (tempdata[i].Created_Time).split(" ");
+              tempdata[i].year = time[0];
+              tempdata[i].times = time[1];
+            }
+            if (tempdata[i].Audited_Status=="2")
+            {
+              tempdata[i].Audited_type ="确认中";
+            }
+            else if (tempdata[i].Audited_Status == "1")
+            {
+              tempdata[i].Audited_type = "已确认";
+            }
+            else
+            {
+              tempdata[i].Audited_type = "待确认";
+            }
+          }
+          console.log(tempdata)
+          that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
+
+        }
+       
+      }
+      ,
+      fail: function (res) {
+        that.setData({ hiddenLoading: true });
+      },
+      complete: function (res) {
+        that.setData({ hiddenLoading: true });
+      }
+    })
+
+  }
+  ,
 
   /**
    * 生命周期函数--监听页面初次渲染完成
