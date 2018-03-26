@@ -11,7 +11,7 @@
       <text class="input-item-label">转投基金</text>
       <view class="input-item-content">
         <picker bindchange='bindfund' range="{{funds}}" value="{{fundIndex}}" range-key="{{'fund_code_name'}}">
-        <view class="weui-select weui-select_in-select-after" style='width:{{(winWidth/16)-8}}em;'>{{funds[fundIndex].fund_code_name}}</view>
+        <view class="weui-select weui-select_in-select-after" style='width:{{(winWidth-60)/16-8}}em;'>{{funds[fundIndex].fund_code_name}}</view>
         </picker>
       </view>
     </view>

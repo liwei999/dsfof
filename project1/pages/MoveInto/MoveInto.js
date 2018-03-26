@@ -61,6 +61,7 @@ Page({
         that.setData({
           winWidth: res.windowWidth
         });
+        console.log(res.windowWidth);
       }
     });  
     that.setData({
