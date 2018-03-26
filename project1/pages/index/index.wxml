@@ -1,4 +1,4 @@
 <!--index.wxml-->
-<view class="imgview" bindtap="bindViewTap">
+<view class="imgview">
   <image src='../../image/jjds2.png' mode="widthFix" class="img" />
 </view>

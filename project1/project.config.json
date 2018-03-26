@@ -85,6 +85,12 @@
 					"name": "赎回基金",
 					"pathName": "pages/Redemptive/Redemptive",
 					"query": "Jysdm=519008"
+				},
+				{
+					"id": -1,
+					"name": "MoveInto",
+					"pathName": "pages/MoveInto/MoveInto",
+					"query": ""
 				}
 			]
 		}

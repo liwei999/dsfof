@@ -1,2 +1,39 @@
 <!--pages/MoveInto/MoveInto.wxml-->
-<text>pages/MoveInto/MoveInto.wxml</text>
+<view class="group-body">
+  <view class="input-list">
+    <view class="input-item">
+      <text class="input-item-label">基金名称</text>
+      <view class="input-item-content">
+        <text name='left_amount'>{{F_Name}}</text>
+      </view>
+    </view>
+     <view class="input-item">
+      <text class="input-item-label">转投基金</text>
+      <view class="input-item-content">
+        <picker bindchange='bindfund' range="{{funds}}" value="{{fundIndex}}" range-key="{{'fund_code_name'}}">
+        <view class="weui-select weui-select_in-select-after" style='width:{{(winWidth-60)/16-8}}em;'>{{funds[fundIndex].fund_code_name}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="input-item">
+      <text class="input-item-label">可转最大份额</text>
+      <view class="input-item-content">
+        <text name='left_amount'>{{MaximumVolume}}</text>
+      </view>
+    </view>
+    <view class="input-item">
+      <text class="input-item-label">转出份额</text>
+      <view class="input-item-content">
+        <input type="digit" placeholder="请输入转出份额" name="tb_Volume" bindinput="InpuVolume" value='{{intoMoney}}'></input>
+      </view>
+    </view>
+    <view class="input-item input-item-full">
+      <text class="input-item-label">操作备注</text>
+      <textarea name="memo" placeholder="操作备注(选填)" maxlength="50" bindinput="InpuBz"  value='{{Memo}}'></textarea>
+    </view>
+  </view>
+</view>
+<view class="btn-submit">
+  <button class="btn-block btn-orange" bindtap="SendData">提交</button>
+</view>
+
