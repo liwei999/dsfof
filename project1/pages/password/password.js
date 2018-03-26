@@ -8,7 +8,6 @@ Page({
     psw2: ''
   },
   onLoad: function () {
-    util.toast(wx.getStorageSync(rui).name);
     //获取登录名
     this.setData({
       userName: wx.getStorageSync(rui).name
@@ -52,11 +51,7 @@ Page({
             obj.pswd ='';
             obj.rbFlag = true;
             wx.setStorageSync(rui, obj);
-
-            console.log("重置密码成功")
-
             var ruiv = wx.getStorageSync(rui);
-            //console.log('ruiv=', ruiv);
             //跳转到登录界面
             wx.redirectTo({
               url: '../login/login',
