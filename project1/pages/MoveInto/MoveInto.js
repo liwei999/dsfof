@@ -12,7 +12,8 @@ Page({
     intoMoney: '',//转出份额
     Memo:'',//操作备注
     funds: [],//转投基金
-    fundIndex:0//转投基金下标
+    fundIndex:0,//转投基金下标
+    winWidth:0
   },
   //判断转出份额是否大于最大份额
   InpuVolume: function (e) {
@@ -53,14 +54,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var parm = JSON.parse(options.parm)
-    this.setData({
+    var that = this;
+    var parm = JSON.parse(options.parm);
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winWidth: res.windowWidth
+        });
+      }
+    });  
+    that.setData({
       F_Jysdm: parm.f_jysdm,
       F_Name: parm.f_name,
       MaximumVolume: parm.f_volume,
       funds:[]
     });
-    this.getFundData(parm.f_jysdm);
+    that.getFundData(parm.f_jysdm);
   },
   /**
    * 获得转投基金
@@ -76,7 +85,11 @@ Page({
       success: function (res) {
         console.log(res);
         var tempdata = res.data.data;
-        if (tempdata.length > 0) {
+        if (tempdata.length > 0) { 
+          for (var i=0;i<tempdata.length;i++)
+          {
+            tempdata[i].fund_code_name = tempdata[i].F_JYSDM + "(" + tempdata[i].F_NAME+")";
+          }
           that.setData({ funds: that.data.funds.concat(tempdata) });
         }
       }

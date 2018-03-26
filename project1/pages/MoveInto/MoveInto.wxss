@@ -67,6 +67,7 @@ page {
   height: 2em;
   min-height: 2em;
   line-height: 2em;
+  
 }
 .weui-select:before {
   content: " ";
@@ -86,4 +87,6 @@ page {
 }
 .weui-select_in-select-after {
   padding-left: 0;
+  
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
