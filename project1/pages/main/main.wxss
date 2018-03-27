@@ -1,12 +1,15 @@
 /* pages/main/main.wxss */
-.main{position: fixed;
+.main{
+  /* position: absolute; */
   height: 100%;
   width: 100%;
   display:flex;
   flex-direction:column;
   /* align-items:center;垂直居中
   justify-content: center;水平居中 */
-  background-color: #efefef;}
+  background-color: #efefef;
+  overflow: hidden;
+  }
 .main .top{background-color: #ffffff;}
 .main .top .top1{display: flex; flex-direction: row; height: 50px; align-items:center; border-bottom: 1px solid #d9d9d9;border-top: 1px solid #d9d9d9;font-size: 14px;  justify-content: space-between;}
 .main .top .top1 .top1_left{margin-left: 15px;color: #000000;}

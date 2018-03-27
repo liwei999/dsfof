@@ -1,7 +1,7 @@
 <!--pages/main/main.wxml-->
 <loading hidden="{{hiddenLoading}}">数据加载中...</loading>
 <view class='main'>
- <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -60:(winHeight - 109)}}px;">  
+ 
    <view class='top'>
       <view class='top1'>
         <view class='top1_left'><text class='top_name'>{{Real_Name}}</text><text class='top_title'>总投资:</text><text class="top_money">{{acc_information.Assets}}元</text>
@@ -18,17 +18,17 @@
       </view>
    </view>
 <!-- <scroll-view scroll-y="true" style="height:{{winHeight}}px"> -->
+
    <view class='center'>
-             <view>
-             <view class='title'>
-             持有明细
-             </view>
+        <view class='title'>持有明细</view>
               <view class="table_th">
                   <view class="th" style="width:31%">基金名称</view>
                   <view class="th">最新净值</view>
                   <view class="th">日收益</view>
                   <view class="th">总收益</view>
               </view>
+   <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -311:(winHeight - 347)}}px;">  
+             <view>
               <view wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Id">
               <view class="table_td" bindtap='detailed_showe' id="{{index}}">
                   <view class="td" style="width:31%">
@@ -84,9 +84,9 @@
               </view>
               </view>
              </view>
+             </scroll-view> 
         </view>
   
-  </scroll-view> 
   <view class="foot">
    <button class='btn' bindtap='click_single' data-clicks='1'>购买</button>
    <button class='btn' bindtap='click_single' data-clicks='2'>下单明细</button>

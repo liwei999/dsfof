@@ -144,6 +144,7 @@ Page({
         if (res.data.data) {
           var tempdata = res.data.data;
           if (tempdata.length > 0) {
+            that.setData({ fundDetailsList:[]});
             that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
           }
         } 
@@ -296,7 +297,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    var that = this;
+    that.getdata();
+    wx.stopPullDownRefresh(); 
   },
 
   /**
