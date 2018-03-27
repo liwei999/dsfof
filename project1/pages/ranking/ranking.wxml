@@ -6,7 +6,7 @@
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">名师高徒组</view>
   </view>
    
-  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{systemInfo.platform != 'android'?(winHeight - 45):(winHeight - 45-49)}}px; ">
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{systemInfo.platform == 'android'?(winHeight - 94):(winHeight - 45)}}px; ">
     <!-- 理财师组 -->
     <swiper-item >
 
@@ -17,7 +17,7 @@
           <view class="th">收益率</view>
           <view class="th" style="width:31%">团队</view>
         </view>
-        <scroll-view scroll-x="false" scroll-y="true" style="height:{{systemInfo.platform != 'android'?(winHeight - 77):(winHeight - 77-49)}}px;">
+        <scroll-view scroll-y="true" style="height:{{winHeight - 126}}px;">
         
           <view class="table_tbody">
             <view class="table_tr" bindtap='bindclick' wx:for="{{LCSRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="User_id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
@@ -45,7 +45,7 @@
           <view class="th">收益率</view>
           <view class="th" style="width:31%">理财师</view>
         </view>
-        <scroll-view scroll-x="false" scroll-y="true" style="height:{{systemInfo.platform != 'android'?(winHeight - 77):(winHeight - 77-49)}}px;">
+        <scroll-view scroll-y="true" style="height:{{winHeight - 126}}px;">
           <view class="table_tbody">
             <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="Account_Id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
               <text>{{index+1}}</text>
