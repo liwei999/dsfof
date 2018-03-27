@@ -4,7 +4,7 @@
  <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -60:(winHeight - 109)}}px;">  
    <view class='top'>
       <view class='top1'>
-        <view class='top1_left'><text class='top_name'>{{acc_information.name}}</text><text class='top_title'>总投资:</text><text class="top_money">{{acc_information.Assets}}元</text>
+        <view class='top1_left'><text class='top_name'>{{Real_Name}}</text><text class='top_title'>总投资:</text><text class="top_money">{{acc_information.Assets}}元</text>
         </view>
         <view class='top1_right' bindtap='clicktzph'><text class='top_pm'>第{{acc_information.OrderId}}名</text><text class='top_more'>></text>
         </view>
@@ -85,12 +85,13 @@
               </view>
              </view>
         </view>
+  
+  </scroll-view> 
   <view class="foot">
    <button class='btn' bindtap='click_single' data-clicks='1'>购买</button>
    <button class='btn' bindtap='click_single' data-clicks='2'>下单明细</button>
    <button class='btn' bindtap='click_single' data-clicks='3'>成交明细</button>
   </view>
-  </scroll-view> 
 </view>
 
 

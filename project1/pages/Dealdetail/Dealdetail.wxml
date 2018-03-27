@@ -17,22 +17,22 @@
                   <text>{{item.AMOUNT}}元</text>
                 </view>
                 <view class="row_mx_count">
-                  <text>确认时间:</text>
+                  <text>确认时间：</text>
                   <text>{{item.Audited_Time}}</text>
                 </view>
                </view>
 
                  <view class="row_mx_right">
                 <view class="row_mx_count">
-                  <text>成交类型:</text>
+                  <text>成交类型：</text>
                   <text>{{item.Trade_Type}}</text>
                 </view>
                 <view class="row_mx_count">
-                  <text>成交份额:</text>
+                  <text>成交份额：</text>
                   <text>{{item.Volume }}份</text>
                 </view>
                 <view class="row_mx_count">
-                  <text>手续费:</text>
+                  <text>手续费：</text>
                   <text>{{item.Expense}}元</text>
                 </view>
                </view>

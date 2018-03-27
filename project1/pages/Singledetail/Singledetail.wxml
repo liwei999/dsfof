@@ -23,10 +23,10 @@
                   <view class="td">
                     <text class="fund_first fund_type_first">{{item.Trade_Type}}</text>
                     <block wx:if="{{item.Trade_Type=='赎回'||item.Trade_Type=='转入'||item.Trade_Type=='转出'}}">
-                      <text class="fund_second fund_money_second">{{item.VOLUME}}份</text>
+                      <text class="fund_second fund_money_second">{{item.VOLUME==''?'--':item.VOLUME+'份'}}</text>
                     </block>
                     <block wx:else>
-                     <text class="fund_second fund_money_second">{{item.AMOUNT}}元</text>
+                     <text class="fund_second fund_money_second">{{item.AMOUNT==''?'--':item.AMOUNT+'元'}}</text>
                     </block>
                     </view>
                   <view class="td" >

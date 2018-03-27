@@ -18,6 +18,7 @@ Page({
     systemInfo:{},
     hiddenLoading: false,//页面加载loading true不显示
     acc_information:{},//详细数据
+    Real_Name:"",
     fundDetailsList: []
   },
 
@@ -72,7 +73,7 @@ Page({
         {
           //保存accountid
           wx.setStorageSync('accountid', datatemp[0].Account_Id);
-          
+          that.setData({Real_Name:datatemp[0].Real_Name});
         }
         
       }
@@ -107,7 +108,7 @@ Page({
         var temp_acc_information={};
         if (tempdata.length>0)
         {
-          temp_acc_information.name = rif.name;//客户名称
+          //temp_acc_information.name = rif.name;//客户名称
           temp_acc_information.Assets = tempdata[0].Assets;//总投资
           temp_acc_information.Left_Amount = tempdata[0].Left_Amount;//可用资金
           temp_acc_information.OrderId = tempdata[0].OrderId;//排名
