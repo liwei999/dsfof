@@ -6,8 +6,8 @@
                   <view class="th">操作类型</view>
                   <view class="th">状态</view>
               </view>
- <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px;"> 
-             <view>
+ <!-- <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px;" bindscrolltoupper="toUpperLoad">  -->
+             <view class='table_view'>
               <view class=".table_td table_xd_td" wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="RowId">
                   <view class="td" style="width:31%">
                     <text class="fund_xd_first">{{item.F_NAME}}</text>
@@ -68,4 +68,4 @@
               </view> -->
 
              </view>
-             </scroll-view>
+             <!-- </scroll-view> -->

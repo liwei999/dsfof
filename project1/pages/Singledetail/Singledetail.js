@@ -52,6 +52,7 @@ Page({
       success: function (res) {
         
         var tempdata = res.data.data;
+        that.setData({ fundDetailsList: []});
         if (tempdata.length>0)
         {
           for (var i = 0; i < tempdata.length; i++) {
@@ -179,14 +180,21 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+     
+    var that = this;
+    that.getdata(that.data.pub_account_Id);
+    wx.stopPullDownRefresh();
   },
-
+  // toUpperLoad:function(){
+  //   var that = this;
+  //   that.getdata(that.data.pub_account_Id);
+  // }
+//,
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+     
   },
 
   /**

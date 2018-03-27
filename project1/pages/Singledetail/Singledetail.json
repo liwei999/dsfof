@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "下单明细",
-  "disableScroll": true
+  "disableScroll": false,
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"#d9d9d9"
 }
