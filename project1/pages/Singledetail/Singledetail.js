@@ -183,7 +183,7 @@ Page({
      
     var that = this;
     that.getdata(that.data.pub_account_Id);
-    wx.stopPullDownRefresh();
+    wx.stopPullDownRefresh(); 
   },
   // toUpperLoad:function(){
   //   var that = this;
