@@ -147,15 +147,15 @@ Page({
           that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
 
         }
-        //隐藏loading
-        that.setData({ hiddenLoading: true });
+      
       }
       ,
       fail: function (res) {
       
       },
       complete: function (res) {
-       
+        //隐藏loading
+        that.setData({ hiddenLoading: true });
       }
     })
 
