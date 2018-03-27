@@ -31,7 +31,6 @@ Page({
      * 获取系统信息 
      */
     wx.getSystemInfo({
-
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
@@ -44,13 +43,13 @@ Page({
       }
 
     });  
-    //console.log(1)
+    //获取账户id
     that.getdata();
     //console.log(2)
-    that.get_information();
+    //that.get_information();
     //console.log(3)
-    that.getcydata();
-    that.setData({ hiddenLoading: true });
+    
+  
   },
 //获得Account_Id
   getdata:function () {
@@ -75,7 +74,9 @@ Page({
           wx.setStorageSync('accountid', datatemp[0].Account_Id);
           that.setData({Real_Name:datatemp[0].Real_Name});
         }
-        
+
+        //获取理财师信息
+        that.get_information();
       }
       ,
       fail: function (res) {
@@ -116,7 +117,8 @@ Page({
           temp_acc_information.Rates = tempdata[0].Rates;//总收益率
           that.setData({ acc_information: temp_acc_information});
         }
-        
+        //获取持有基金
+        that.getcydata();
       },
       fail: function (res) {
         
@@ -145,7 +147,8 @@ Page({
           that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
 
         }
-
+        //隐藏loading
+        that.setData({ hiddenLoading: true });
       }
       ,
       fail: function (res) {

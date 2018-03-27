@@ -12,8 +12,10 @@ var rbFlag = "true";
 Page({
   data: {
     infoMess: '',
-    userName: '13506179761',
-    passWd: 'dsjj_zgx_check',
+    //userName: '13506179761',
+    //passWd: 'dsjj_zgx_check',
+    userName: '',
+    passWd: '',
     loginToast: true,
     showTipTxt: '',
     tipHidden: true,
@@ -49,7 +51,7 @@ Page({
   //用户名，手机号，密码输入框
   userNameInput: function (e) {
     this.setData({
-      userN: e.detail.value
+      userName: e.detail.value
     })
   },
 
