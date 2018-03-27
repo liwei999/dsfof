@@ -141,42 +141,23 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        var tempdata = res.data.data;
-        if (tempdata.length > 0) {
-          console.log(tempdata)
-          that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
-
-        }
-      
+        if (res.data.data) {
+          var tempdata = res.data.data;
+          if (tempdata.length > 0) {
+            that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
+          }
+        } 
       }
       ,
       fail: function (res) {
-      
       },
       complete: function (res) {
         //隐藏loading
         that.setData({ hiddenLoading: true });
       }
     })
-
   }
 ,
-  /** 
-     * 滑动切换tab 
-     */
-  // bindChange: function (e) {
-
-  //   var that = this;
-  //   that.setData({ currentTab: e.detail.current });
-
-  // },
-
-  // bindChange2: function (e) {
-
-  //   var that = this;
-  //   that.setData({ currentTab2: e.detail.current });
-
-  // },
   /**
    * 点击显示或者隐藏
    */
@@ -199,48 +180,7 @@ Page({
     }
   },
 
-  /** 
-   * 点击tab切换 
-   */
-  // swichNav: function (e) {
-
-  //   var that = this;
-
-  //   if (this.data.currentTab === e.target.dataset.current) {
-  //     return false;
-  //   } else {
-  //     that.setData({
-  //       currentTab: e.target.dataset.current
-  //     })
-  //   }
-  // },
-//   swichNav2: function (e) {
-
-//     var that = this;
-//     console.log(this.data.currentTab2 + "," + e.target.dataset.current)
-//     if (this.data.currentTab2 === e.target.dataset.current) {
-//       return false;
-//     } else {
-//       that.setData({
-//         currentTab2: e.target.dataset.current
-//       });
-//       if (e.target.dataset.current==1)
-//       {
-//         wx.navigateTo({
-//           url: "../Singledetail/Singledetail?accountid=" + wx.getStorageSync("accountid")
-//         });
-//       }
-//       else if (e.target.dataset.current == 2)
-//       {
-//         wx.navigateTo({
-//           url: "../Dealdetail/Dealdetail?accountid=" + wx.getStorageSync("accountid")
-//         });
-
-//       }
-//     }
-//   }
-// ,
-/**
+ /**
  * 跳转购买基金1 下单明细2 成交明细为3 clicks
  */
   click_single:function(e){
@@ -324,7 +264,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var app = getApp();
+    if (getApp().globalData.reload=='1')
+    {
+      console.log('重装载入=', getApp().globalData.reload);
+      //获取账户id
+      this.getdata();
+    }
   },
 
   /**
