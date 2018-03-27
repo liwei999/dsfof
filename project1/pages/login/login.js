@@ -21,12 +21,19 @@ Page({
     tipHidden: true,
     image: ''
   },
-
+  //页面载入时执行
   onLoad: function (options) {
     // 判断是否记住密码
     try {
       rbFlag = wx.getStorageSync(rui).rbFlag;
-      
+      if (options.reload)
+      {
+        console.log('reload', options.reload)
+        this.setData({
+          reload: options.reload
+        });
+      }
+
       if (rbFlag) {
         var rif = wx.getStorageSync(rui);
         console.log('rif=', rif);
@@ -91,7 +98,6 @@ Page({
       toast('密码不能为空');
       return;
     }
-    //console.log(userName, passWd, rbFlag);
 
     wx.showToast({
       title: '加载中',
@@ -136,9 +142,7 @@ Page({
           {
             toast("账号或密码错误！");
           }
-          
         }
-
       },
       fail: function (res) {
         wx.showToast({
@@ -148,100 +152,12 @@ Page({
         })
       }
     })
-
-    // if (userName == "wuc" && passWd=="123")
-    // {
-    //   var obj = new Object();
-    //   obj.name = userName;
-    //   obj.pswd = passWd;
-    //   obj.rbFlag = rbFlag;
-    //   // obj.phone = userPhone;
-    //   console.log('obj', obj);
-    //   wx.setStorageSync(rui, obj);
-    //   wx.switchTab({
-    //     url: '../main/main',
-    //   })
-    // }
-    // else
-    // {
-    //   toast('用户名密码错误');
-    //   this.setData({
-    //     passWd: ""
-    //   })
-    //   var obj = new Object();
-    //   obj.name = userName;
-    //   obj.pswd = "";
-    //   obj.rbFlag = rbFlag;
-    //   // obj.phone = userPhone;
-    //   console.log('obj', obj);
-    //   wx.setStorageSync(rui, obj);
-    //   return;
-    // }
-    // if (request) {
-    //   wx.navigateTo({
-    //     url: "../index/index?" +
-    //     "userName=" + userName + "&" +
-    //     "passWd=" + passWd + "&" +
-    //     "userPhone=" + userPhone,
-    //     success: function (res) {
-
-    //     },
-    //     fail: function (res) {
-    //       // fail
-    //     },
-    //     complete: function (res) {
-    //       // complete
-    //     }
-    //   })
-    // }
-
-    // 发送网络请求
-    // wx.request({
-    //   url: XXX,XXX,XXX,
-    //   data: { AGENTID: userName, PSWD: Md5(passWd), PHONE: userPhone, target: 1 },
-    //   method: 'POST',
-    //   header: {
-    //     "content-type": "application/x-www-form-urlencoded"
-    //   },
-    //   success: function (res) {
-    //     // success
-    //     var loginInfo = res.data
-    //     console.log(loginInfo);
-    //     if (loginInfo.code == 1) {
-    //     console.log(res.data);
-    // 记住密码
-    //     var obj = new Object();
-    //     obj.name = userName;
-    //     obj.pswd = passWd;
-    //     obj.phone = userPhone;
-    //     console.log('obj', obj);
-    //     that.setSaveData(rui, obj);
-    //       // 登录记录
-    //       var logs = wx.getStorageSync(loginList) || []
-    //       logs.unshift(Date.now())
-    //       wx.setStorageSync(loginList, logs)
-
-    //       // 至主页
-    //       wx.switchTab({ url: "../home/home" });
-    //       toast(loginInfo.msg);
-    //     } else {
-    //       var msg = loginInfo.msg;
-    //       toast(loginInfo.msg);
-    //     }
-    //   },
-    //   fail: function (res) {
-    //     // fail
-    //     toast('登录失败,请重试');
-    //     console.log('登录失败:', res);
-    //   },
-    //   complete: function () {
-    //     // complete
-    //     console.log('comlete');
-    //   }
-    // })
   },
-
-
+  onShow:function()
+  {
+    var app = getApp();
+    console.log('reload=',getApp().globalData.reload);
+  }
 })
 function toast(toast) {
   wx.showToast({

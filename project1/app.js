@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    reload:'0'     //跳转到首页时是否重装载入数据
   }
 })

@@ -31,6 +31,11 @@ Page({
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+         
+          //设置重新载入标记
+          var app = getApp();
+          getApp().globalData.reload='1'
+
           wx.redirectTo({
             url: '../login/login',
           })
