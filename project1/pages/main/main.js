@@ -268,6 +268,11 @@ Page({
     if (getApp().globalData.reload=='1')
     {
       console.log('重装载入=', getApp().globalData.reload);
+
+      //设置重新载入标记为0
+      var app = getApp();
+      getApp().globalData.reload = '0'
+
       //获取账户id
       this.getdata();
     }
