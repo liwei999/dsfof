@@ -32,14 +32,15 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-
-        var tempdata = res.data.data;
-        if (tempdata.length > 0) {
-          console.log(tempdata)
-          that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
-
+        if (res.data.data)
+        {
+          var tempdata = res.data.data;
+          if (tempdata.length > 0) 
+          {
+            console.log(tempdata)
+            that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true })
+          }
         }
-
       }
       ,
       fail: function (res) {
