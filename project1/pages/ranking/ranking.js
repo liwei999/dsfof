@@ -75,6 +75,7 @@ Page({
       },
       success: function (res) {
         console.log(res);
+        if (res.data.data) {
         if (that.data.Account_Type==0)
         {
         that.setData({ LCSRankingList: []});
@@ -85,6 +86,15 @@ Page({
           that.setData({ MSGTRankingList: [] });
           that.setData({ MSGTRankingList: that.data.MSGTRankingList.concat(res.data.data), hiddenLoading: true });
 
+        }
+        }
+        else
+        {
+          wx.showToast({
+            title: '暂无数据',
+            icon: 'none',
+            duration: 2000
+          });
         }
       }
       ,

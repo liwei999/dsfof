@@ -3,7 +3,7 @@ page{
 } 
   
 .container { 
- height: 100%; 
+ height: auto; 
  display: flex; 
  flex-direction: column; 
  padding: 0; 
@@ -73,3 +73,7 @@ page{
  width: 80%; 
  margin-top: 35px; 
 }
+.font_zy{ font-size: 10pt;color: #888; margin-top: 10px;}
+.font_title{font-weight: bold;font-size: 11pt;color:#f7982a}
+.font_title2{color:#f7982a;}
+.font_title3{font-weight: bold;}

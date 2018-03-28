@@ -24,7 +24,8 @@ Page({
   getdata: function (acc_id) {
     //console.log(acc_id)
     var that = this;
-    that.setData({ hiddenLoading: false });
+    
+    that.setData({ hiddenLoading: false, fundDetailsList: []});
     wx.request({
       url: util.urlstr + '/Ashx/GetAccountTradeList.ashx?otype=2&Account_Id=' + acc_id + '&_search=false&nd=' + parseInt(1000 * Math.random()) + '&rows=100&page=1&sidx=f_jysdm&sord=asc&json=1',
       method: 'GET',
@@ -32,12 +33,21 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-
+        if (res.data.data) {
         var tempdata = res.data.data;
         if (tempdata.length > 0) {
           console.log(tempdata)
           that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
 
+        }
+        }
+        else
+        {
+          wx.showToast({
+            title: '暂无数据',
+            icon: 'none',
+            duration: 2000
+          });
         }
 
       }

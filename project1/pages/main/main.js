@@ -80,7 +80,11 @@ Page({
       }
       ,
       fail: function (res) {
-        
+        wx.showToast({
+          title: '网络异常，下拉刷新',
+          icon: 'none',
+          duration: 2000
+        })
       },
       complete: function (res) {
         
@@ -121,7 +125,11 @@ Page({
         that.getcydata();
       },
       fail: function (res) {
-        
+        wx.showToast({
+          title: '网络异常，下拉刷新',
+          icon: 'none',
+          duration: 2000
+        })
       },
       complete: function (res) {
        
@@ -151,6 +159,11 @@ Page({
       }
       ,
       fail: function (res) {
+        wx.showToast({
+          title: '网络异常，下拉刷新',
+          icon: 'none',
+          duration: 2000
+        })
       },
       complete: function (res) {
         //隐藏loading
