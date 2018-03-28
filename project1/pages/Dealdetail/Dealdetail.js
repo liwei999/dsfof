@@ -33,13 +33,16 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        if (res.data.data) {
+       if (res.data.data) {
         var tempdata = res.data.data;
         if (tempdata.length > 0) {
           console.log(tempdata)
           that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
 
+
+
         }
+
         }
         else
         {
@@ -48,9 +51,7 @@ Page({
             icon: 'none',
             duration: 2000
           });
-        }
-
-      }
+        }      }
       ,
       fail: function (res) {
         that.setData({ hiddenLoading: true });

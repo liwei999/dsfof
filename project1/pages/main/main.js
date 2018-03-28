@@ -142,6 +142,7 @@ Page({
   getcydata: function () {
     var that = this;
     that.setData({ hiddenLoading: false });
+    that.setData({ fundDetailsList: [] });
     wx.request({
       url: util.urlstr + '/Ashx/GetAccountTradeList.ashx?otype=3&Account_Id=' + wx.getStorageSync("accountid") + '&_search=false&nd=' + parseInt(1000 * Math.random()) + '&rows=100&page=1&sidx=f_jysdm&sord=asc&json=1',
       method: 'GET',
@@ -152,7 +153,7 @@ Page({
         if (res.data.data) {
           var tempdata = res.data.data;
           if (tempdata.length > 0) {
-            that.setData({ fundDetailsList:[]});
+            
             that.setData({ fundDetailsList: that.data.fundDetailsList.concat(tempdata), hiddenLoading: true });
           }
         } 
