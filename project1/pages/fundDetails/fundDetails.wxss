@@ -67,7 +67,7 @@
 /**
 *成交明细开始
 */
-.row_mx{display: flex;flex-direction: row; font-size: 14px; padding-left: 5px; padding-top: 8px;border-bottom: 1px solid #d9d9d9;color: #9d9d9d;}
+.row_mx{display: flex;flex-direction:column; font-size: 14px; padding-left: 5px; padding-top: 8px;border-bottom: 1px solid #d9d9d9;color: #9d9d9d;}
 .row_mx .row_mx_count{text-align: left; line-height: 26px;}
 .font_12{font-size: 12px;}
 .row_mx_left{width: 55%;}
@@ -75,6 +75,8 @@
 .fund_name_mx{display:inline-block; color: #373737;font-weight: 500; padding-right: 6px; width: 100px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:12px;}
 .font_red{color:#ff0000;}
 .font_green{color:#2bb98f;}
+
+.row_one{display: flex; flex-direction: row;}
 /**
 *成交明细结束
 */

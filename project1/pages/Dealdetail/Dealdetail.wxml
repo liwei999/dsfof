@@ -3,6 +3,7 @@
 <scroll-view scroll-x="false" scroll-y="true" style="height:100%;"> 
              <view>
               <view class="row_mx"  wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Audited_Time">
+               <view class='row_one'>
                <view class="row_mx_left">
                 <view class="row_mx_count">
                   <text class="fund_name_mx">{{item.F_Name}}</text>
@@ -15,10 +16,6 @@
                 <view class="row_mx_count">
                   <text>成交金额：</text>
                   <text>{{item.AMOUNT}}元</text>
-                </view>
-                <view class="row_mx_count">
-                  <text>确认时间：</text>
-                  <text>{{item.Audited_Time}}</text>
                 </view>
                </view>
 
@@ -36,6 +33,11 @@
                   <text>{{item.Expense}}元</text>
                 </view>
                </view>
+               </view>
+<view class="row_mx_count">
+                  <text>确认时间：</text>
+                  <text>{{item.Audited_Time}}</text>
+                </view>
               </view>
                 </view>
   </scroll-view>
