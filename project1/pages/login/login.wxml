@@ -28,12 +28,11 @@
  <view class="font_zy">
   <view class='font_title'>参赛选手注意事项:</view>
   <view class='font_title3'>1. 默认登录信息</view>
-    <view class='font_title2'>[用户名]:报名时添写的手机或电话;</view> 
-    <view class='font_title2'>[密　码]:默认为123456;</view>
-  <view class='font_title3'>2.首次登录后需要在主页设置下修改登录密码 </view>
-  <view class='font_title3'>3.如多次登录失败或操作异常等问题,请发送邮</view>
-  <view class='font_title3'>件到以下地址</view>
-   <view class='font_title2'>[邮　箱]:service@dsfof.com</view>
+    <view class='font_title2'>[账号]:报名时添写的手机或电话;</view> 
+    <view class='font_title2'>[密码]:默认为123456;</view>
+  <view class='font_title3'>2.首次登录后建议在[设置]栏目下修改初始密码</view>
+  <view class='font_title3'>3.如多次登录失败或操作异常等问题,请发送邮件</view>
+   <view class='font_title2'>[邮箱]:service@dsfof.com</view>
  </view>
  </view> 
 </view>
