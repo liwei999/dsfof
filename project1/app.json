@@ -12,7 +12,8 @@
     "pages/Singledetail/Singledetail",
     "pages/Dealdetail/Dealdetail",
     "pages/Redemptive/Redemptive",
-    "pages/MoveInto/MoveInto"
+    "pages/MoveInto/MoveInto",
+    "pages/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "light",

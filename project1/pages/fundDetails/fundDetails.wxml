@@ -2,36 +2,144 @@
 
 <loading hidden="{{hiddenLoading}}">数据加载中...</loading>
 
-<view>
-  <view class="table_th">
-    <view class="th" style="width:31%">基金名称</view>
-    <view class="th">最新净值</view>
-    <view class="th">日收益</view>
-    <view class="th">总收益</view>
+<view class='center'>
+
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">持有明细</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">下单明细</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">成交明细</view>
   </view>
-  <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-32}}px">
-    <view class="table_row">
-      <view class="table_td" wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Id">
-        <view class="td" style="width:31%">
-          <text class="fund_first fund_first_name">{{item.f_name}}</text>
-          <view class="fund_second_all">
-            <text class="fund_second font_red">{{item.f_jysdm}}</text>
-            <text class="fund_second">{{item.F_type}}</text>
+
+
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{systemInfo.platform == 'android'?(winHeight - 94):(winHeight - 45)}}px; ">
+    <!-- 持有明细 -->
+    <swiper-item>
+      <view class="table_th">
+        <view class="th" style="width:31%">基金名称</view>
+        <view class="th">最新净值</view>
+        <view class="th">日收益</view>
+        <view class="th">总收益</view>
+      </view>
+      <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-77}}px">
+        <view class="table_row">
+          <view class="table_td" wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Id">
+            <view class="td" style="width:31%">
+              <text class="fund_first fund_first_name">{{item.f_name}}</text>
+              <view class="fund_second_all">
+                <text class="fund_second font_red">{{item.f_jysdm}}</text>
+                <text class="fund_second">{{item.F_type}}</text>
+              </view>
+            </view>
+            <view class="td">
+              <text class="fund_first">{{item.Nv}}</text>
+              <text class="fund_second">{{item.F_Date}}</text>
+            </view>
+            <view class="td">
+              <text class="fund_first {{item.dRate>0?'font_red':'font_green'}}">{{item.dRate==""?"0.00":item.dRate}}%</text>
+              <text class="fund_second">{{item.dProfit==""?"0.00":item.dProfit}}元</text>
+            </view>
+            <view class="td">
+              <text class="fund_first {{item.Rate>0?'font_red':'font_green'}}">{{item.Rate==""?"0.00":item.Rate}}%</text>
+              <text class="fund_second {{item.Profit>0?'font_red':'font_green'}}">{{item.Profit==""?"0.00":item.Profit}}元</text>
+            </view>
           </view>
         </view>
-        <view class="td">
-          <text class="fund_first">{{item.Nv}}</text>
-          <text class="fund_second">{{item.F_Date}}</text>
-        </view>
-        <view class="td">
-          <text class="fund_first {{item.dRate>0?'font_red':'font_green'}}">{{item.dRate==""?"0.00":item.dRate}}%</text>
-          <text class="fund_second">{{item.dProfit==""?"0.00":item.dProfit}}元</text>
-        </view>
-        <view class="td">
-          <text class="fund_first {{item.Rate>0?'font_red':'font_green'}}">{{item.Rate==""?"0.00":item.Rate}}%</text>
-          <text class="fund_second {{item.Profit>0?'font_red':'font_green'}}">{{item.Profit==""?"0.00":item.Profit}}元</text>
-        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 下单明细 -->
+    <swiper-item>
+      <view class="table_th">
+        <view class="th" style="width:31%">基金名称</view>
+        <view class="th">下单时间</view>
+        <view class="th">操作类型</view>
+        <view class="th">状态</view>
       </view>
-    </view>
+      
+       <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-77}}px">
+      <view class='table_view'>
+              <view class=".table_td table_xd_td" wx:for="{{xdDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="RowId">
+                  <view class="td" style="width:31%">
+                    <text class="fund_xd_first">{{item.F_NAME}}</text>
+                    <view class="fund_second_all">
+                    <text class="fund_second font_red">{{item.F_Jysdm}}</text>
+                    <text class="fund_xd_second {{item.Audited_Status=='0'?'':'fund_xd_second_grey'}}">{{item.Audited_type}}</text>
+                    </view>
+                  </view>
+                  <view class="td">
+                    <text class="fund_first fund_time_first" style="">{{item.year}}</text>
+                    <text class="fund_second fund_time_first">{{item.times}}</text>
+                  </view>
+                  <view class="td">
+                    <text class="fund_first fund_type_first">{{item.Trade_Type}}</text>
+                    <block wx:if="{{item.Trade_Type=='赎回'||item.Trade_Type=='转入'||item.Trade_Type=='转出'}}">
+                      <text class="fund_second fund_money_second">{{item.VOLUME==''?'--':item.VOLUME+'份'}}</text>
+                    </block>
+                    <block wx:else>
+                     <text class="fund_second fund_money_second">{{item.AMOUNT==''?'--':item.AMOUNT+'元'}}</text>
+                    </block>
+                    </view>
+                  <view class="td" >
+                  <block wx:if="{{item.Audited_Status==1}}">
+                     <text class="fund_first fund_ok_first">{{item.UPDATE_DATE}}</text>
+                    <text class="fund_second fund_ok_first">已确认</text>
+                  </block>
+                   <block wx:elif="{{item.Audited_Status==2}}">
+                      <text class="fund_second fund_ok_first">确认中</text>
+                  </block>
+                   <block wx:else>
+                        <button class="fund_btn"  data-rowid='{{item.RowId}}' >取消</button>
+                  </block>
+                  </view>
+              </view>
+             </view>
+        </scroll-view>
+    </swiper-item>
+
+    <!-- 持有明细 -->
+    <swiper-item>
+      <scroll-view scroll-x="false" scroll-y="true" style="height:{{winHeight-45}}px"> 
+             <view>
+              <view class="row_mx"  wx:for="{{cjDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Audited_Time">
+               <view class="row_mx_left">
+                <view class="row_mx_count">
+                  <text class="fund_name_mx">{{item.F_Name}}</text>
+                  <text class='font_red font_12'>{{item.F_Jysdm}}</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交净值：</text>
+                  <text>{{item.Trade_Nv}}</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交金额：</text>
+                  <text>{{item.AMOUNT}}元</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>确认时间：</text>
+                  <text>{{item.Audited_Time}}</text>
+                </view>
+               </view>
+
+                 <view class="row_mx_right">
+                <view class="row_mx_count">
+                  <text>成交类型：</text>
+                  <text>{{item.Trade_Type}}</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>成交份额：</text>
+                  <text>{{item.Volume }}份</text>
+                </view>
+                <view class="row_mx_count">
+                  <text>手续费：</text>
+                  <text>{{item.Expense}}元</text>
+                </view>
+               </view>
+              </view>
+                </view>
   </scroll-view>
+    </swiper-item>
+
+
+
+  </swiper>
 </view>

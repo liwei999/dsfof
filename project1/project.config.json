@@ -91,6 +91,18 @@
 					"name": "MoveInto",
 					"pathName": "pages/MoveInto/MoveInto",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webview",
+					"pathName": "pages/webview/webview",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "fundDetails",
+					"pathName": "pages/fundDetails/fundDetails",
+					"query": ""
 				}
 			]
 		}
