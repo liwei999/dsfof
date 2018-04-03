@@ -47,11 +47,11 @@
         </view>
         <scroll-view scroll-y="true" style="height:{{winHeight - 126}}px;">
           <view class="table_tbody">
-            <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="Account_Id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
+            <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="Account_Id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}' style='align-items:center;'>
               <text>{{index+1}}</text>
               <text>{{item.Real_Name}}</text>
               <text class="{{item.Rate>0?'font_red':'font_green'}}">26.80%</text>
-              <text style="width:31%">{{item.tname}}</text>
+              <text style="width:31%; font-size:12px;">{{item.tname}}\r\n{{item.bankname}}</text>
             </view>
 
           </view>
