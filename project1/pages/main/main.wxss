@@ -20,8 +20,8 @@
 .top_pm{color: #ffa500;padding-right: 9px;}
 .top_more{color: #d9d9d9;}
 .top2{width: 100%;}
-.top2_line{ width: 100%;padding: 9px 15px;color: #9d9d9d;font-size: 14px; }
-.top2_client{height: 100%;width: 100%;display:flex;flex-direction:row; justify-content: space-between;font-size: 13px; text-align: center;color: #a5a5a5; padding: 7px 0 18px 0;}
+.top2_line{ width: 100%;padding: 5px 15px;color: #9d9d9d;font-size: 14px; }
+.top2_client{height: 100%;width: 100%;display:flex;flex-direction:row; justify-content: space-between;font-size: 13px; text-align: center;color: #a5a5a5; padding: 0px 0 8px 0;}
 .top2_client_left{ width: 50%; border-right: 1px solid #d9d9d9;}
 .top2_client_left_money{font-size: 24px;font-weight: bold; color: #2bb98f;}
 .top2_client_left_dw{font-weight: bold; color: #2bb98f;font-size: 15px;}

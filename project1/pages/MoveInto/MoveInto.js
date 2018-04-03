@@ -131,7 +131,7 @@ Page({
         Volume: that.data.intoMoney,
         Devi_Type: 1,
         Trade_Type: 11,
-        Memo: that.data.Memo,
+        Memo: that.data.Memo.replace(/\s+/g, ''),
         otype: 'insert',
         Account_Id: wx.getStorageSync("accountid")
       },

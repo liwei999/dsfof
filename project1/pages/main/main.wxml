@@ -27,7 +27,7 @@
                   <view class="th">日收益</view>
                   <view class="th">总收益</view>
               </view>
-   <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -311:(winHeight - 347)}}px;">  
+   <scroll-view  scroll-y="true" style="height:{{systemInfo.platform != 'android'?winHeight -288:(winHeight - 324)}}px;">  
              <view>
               <view wx:for="{{fundDetailsList}}" wx:for-index="index" wx:for-item="item" wx:key="Id">
               <view class="table_td" bindtap='detailed_showe' id="{{index}}">
