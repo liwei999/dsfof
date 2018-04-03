@@ -44,16 +44,19 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var app = getApp();
 
     /** 
      * 获取系统信息 
      */
     wx.getSystemInfo({
+      
+     
 
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
-          winHeight: res.windowHeight,
+          winHeight: getApp().globalData.screenHeight,
           systemInfo: res
         });
       }

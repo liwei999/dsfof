@@ -38,6 +38,10 @@ Page({
           systemInfo: res
         });
 
+        //设置屏幕高度，保存到全局变量中
+        var app = getApp();
+        getApp().globalData.screenHeight = res.windowHeight;
+       
         console.log(that.data.winHeight, that.data.systemInfo.platform);
 
       }
