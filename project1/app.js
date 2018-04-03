@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    reload:'0'     //跳转到首页时是否重装载入数据
+    reload:'0',     //跳转到首页时是否重装载入数据
+    screenHeight:0  //屏幕高度
   }
 })
