@@ -11,7 +11,7 @@
   overflow: hidden;
   }
 .main .top{background-color: #ffffff;}
-.main .top .top1{display: flex; flex-direction: row; height: 50px; align-items:center; border-bottom: 1px solid #d9d9d9;border-top: 1px solid #d9d9d9;font-size: 14px;  justify-content: space-between;}
+.main .top .top1{display: flex; flex-direction: row; height: 35px; align-items:center; border-bottom: 1px solid #d9d9d9;border-top: 1px solid #d9d9d9;font-size: 14px;  justify-content: space-between;}
 .main .top .top1 .top1_left{margin-left: 15px;color: #000000;}
 .top_name{padding-right: 8px;border-right: 1px solid #d9d9d9;}
 .top_title{padding-left:8px;font-size: 13px;color:#a5a5a5}
@@ -27,7 +27,7 @@
 .top2_client_left_dw{font-weight: bold; color: #2bb98f;font-size: 15px;}
 .top2_client_right{width: 50%;}
 
-.center{margin-top: 12px; width: 100%;  background: #ffffff;}
+.center{margin-top: 12px; width: 100%;  background: #ffffff; margin-bottom: 80px;}
 
 /**tab样式**/  
 .swiper-tab{  
@@ -85,10 +85,11 @@
 .detailed_left view{text-align: left;}
 .detailed_left view text{padding-left: 3px;}
 .cz{display:flex; flex-direction:row; }
-.cz button{width: 50%;color: #ffffff;font-weight: 500; height: 40px;border-radius: 0px;border: none;font-size: 16px;}
+.cz button{width: 33.33333333%;color: #ffffff;font-weight: 500; height: 40px;border: none;font-size: 16px; margin: 0 2px 0 2px;}
 .cz button image{margin-right: 5px;}
 .btn_sh{background-color: #13b2ae;}
 .btn_zt{background-color: #ff0000;}
+.btn_xq{background-color: #ffa500;}
 
 
 /**

@@ -184,19 +184,49 @@ Page({
   {
     var that =this;
     var dataindex = e.currentTarget.id;
+
+    // var dataTop = e.currentTarget.offsetTop;
+    // var height = that.data.winHeight-60;
     //console.log(e)
+    // console.log("前" + e.currentTarget.offsetTop);
+    // console.log("屏幕高度"+that.data.winHeight)
+    // console.log(dataTop, height);
 
     if (that.data.pd==dataindex)
     {
       that.setData({
         pd:-1
       });
+      //e.currentTarget.offsetTop = e.currentTarget.offsetTop+60;
     }
     else{
       that.setData({
         pd: dataindex
       });
+      // wx.pageScrollTo({
+      //   scrollTop: 0
+      // })
+      // if (dataTop < height)
+      // {
+      //   var temp=height - dataTop;
+      //   console.log("temp" + temp / 162)
+      //   if (temp/162>1)
+      //   {
+
+      //   }
+      //   else
+      //   {
+          
+      //     var temp2 = 162 - temp % 162
+      //     console.log("取模" +temp2)
+      //     wx.pageScrollTo({
+      //       scrollTop: temp2
+      //   });
+      //   }
+      // }
+
     }
+    //console.log("后" + e.currentTarget.offsetTop)
   },
 
  /**
