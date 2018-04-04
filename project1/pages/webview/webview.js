@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+  url:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+   var that =this;
+   that.setData({ url: "https://wap2.dsfof.com.cn/Share_Fund.asp?userid=0&f_jysdm=" + options.jysdm+"&v=0&uid=0&down=0"});
   },
 
   /**

@@ -294,7 +294,13 @@ Page({
       url: '../MoveInto/MoveInto?parm='+JSON.stringify(parm)  
     })
   },
-
+  gotofund:function(e)
+  {
+    wx.navigateTo({
+      url: '../webview/webview?jysdm=' + e.currentTarget.dataset.jysdm
+    })
+  }
+,
   //重新载入持有基金数据
   ReloadData: function (name) {
     this.setData({

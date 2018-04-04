@@ -1,2 +1,2 @@
 <!--pages/webview/webview.wxml-->
-<web-view src="https://vojs.dsfof.com.cn/MobileAspx/test.html"></web-view>
+<web-view src="{{url}}"></web-view>

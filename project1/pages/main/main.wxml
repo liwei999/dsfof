@@ -74,7 +74,7 @@
                 </view>
 
                 <view class='cz'>
-                <button class="btn_xq"  data-jysdm="{{item.f_jysdm}}" data-name="{{item.f_name}}" data-Volume="{{item.Volume}}"><image src='../../image/xq.png' style='width: 16.5px;height: 15px;'></image>基金详情</button>
+                <button class="btn_xq" bindtap="gotofund" data-jysdm="{{item.f_jysdm}}" data-name="{{item.f_name}}" data-Volume="{{item.Volume}}"><image src='../../image/xq.png' style='width: 16.5px;height: 15px;'></image>基金详情</button>
                   <button class="btn_sh" bindtap="Redemptive" data-jysdm="{{item.f_jysdm}}" data-name="{{item.f_name}}" data-Volume="{{item.Volume}}"><image src='../../image/sh.png' style='width: 16.5px;height: 15px;'></image>赎回</button>
                   <button class="btn_zt" bindtap="MoveInto" data-jysdm="{{item.f_jysdm}}" data-name="{{item.f_name}}" data-volume="{{item.Volume}}"><image src='../../image/zt.png' style='width: 15px;height: 15px;'></image>转投</button>
                 </view>
