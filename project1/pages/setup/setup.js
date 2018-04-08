@@ -2,7 +2,7 @@
 Page({
   data: {
     cache: '10.24M',
-    tel: '028-86263615',
+    QQ: '1994037118',
     version: 'service@dsfof.com'
   },
   onLoad: function() {
