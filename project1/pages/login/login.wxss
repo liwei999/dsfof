@@ -30,23 +30,25 @@ page{
   
 .inputView { 
  background-color: #fff; 
- line-height: 44px; 
+ /* line-height: 44px;  */
+ display: flex;
+ flex-direction: row;
 } 
 /*输入框*/
-.nameImage, .keyImage { 
- margin-left: 22px; 
+.nameImage, .keyImage {
+ margin:15px  0 15px 10px;  
  width: 14px; 
  height: 14px
 } 
   
 .loginLab { 
- margin: 15px 15px 15px 10px; 
+ /* margin: 15px 15px 0px 10px; */
+ padding: 12px 15px 0px 10px; 
  color: #545454; 
  font-size: 14px
 } 
 .inputText { 
  flex: block; 
- float: right; 
  text-align: right; 
  margin-right: 22px; 
  margin-top: 11px; 

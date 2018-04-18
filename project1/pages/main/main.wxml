@@ -6,7 +6,7 @@
       <view class='top1'>
         <view class='top1_left'><text class='top_name'>{{Real_Name}}</text><text class='top_title'>总投资:</text><text class="top_money">{{acc_information.Assets}}元</text>
         </view>
-        <view class='top1_right' bindtap='clicktzph'><text class='top_pm'>第{{acc_information.OrderId}}名</text><text class='top_more'>></text>
+        <view class='top1_right' bindtap='clicktzph' wx:if="{{acc_information.OrderId!=''}}"><text class='top_pm'>第{{acc_information.OrderId}}名</text><text class='top_more'>></text>
         </view>
       </view>
       <view class='top2'>

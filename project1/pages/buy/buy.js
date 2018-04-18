@@ -108,6 +108,11 @@ Page({
       util.toast("请选择基金！")
       return ;
     }
+    if (that.data.buyMoney<1000)
+    {
+      util.toast("金额小于1000")
+      return;
+    }
     wx.showToast({
       title: '提交中...',
       icon: 'loading'
