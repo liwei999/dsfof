@@ -12,19 +12,19 @@
 
       <view>
        <view class="table_th">
-          <view class="th1">排名</view>
+          <view class="th">排名</view>
           <view class="th">姓名</view>
           <view class="th">收益率</view>
-          <view class="th4">团队</view>
+          <view class="th" style="width:31%">团队</view>
         </view>
         <scroll-view scroll-y="true" style="height:{{winHeight - 126}}px;">
         
           <view class="table_tbody">
             <view class="table_tr" bindtap='bindclick' wx:for="{{LCSRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="User_id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}'>
-              <text class="thv1">{{index+1}}</text>
-              <text class="thv">{{item.Real_Name}}</text>
-              <text class="{{item.Rate>0?'font_red':'font_green'}} thv">{{item.Rate}}%</text>
-              <text class="thv4">{{item.bankname}}</text>
+              <text>{{index+1}}</text>
+              <text>{{item.Real_Name}}</text>
+              <text class="{{item.Rate>0?'font_red':'font_green'}}">{{item.Rate}}%</text>
+              <text style="width:31%">{{item.bankname}}</text>
             </view>
           </view>
         </scroll-view>
@@ -40,18 +40,18 @@
 
       <view>
         <view class="table_th">
-          <view class="th1">排名</view>
+          <view class="th">排名</view>
           <view class="th">姓名</view>
           <view class="th">收益率</view>
-          <view class="th4" style="width:31%">理财师</view>
+          <view class="th" style="width:31%">理财师</view>
         </view>
         <scroll-view scroll-y="true" style="height:{{winHeight - 126}}px;">
           <view class="table_tbody">
-            <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="Account_Id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}' style='align-items:center;padding:6px 0px;'>
-              <text class="thv1">{{index+1}}</text>
-              <text class="thv">{{item.Real_Name}}</text>
-              <text class="{{item.Rate>0?'font_red':'font_green'}} thv">26.80%</text>
-              <text class="thv4" style="font-size:12px;" >{{item.tname}}\r\n{{item.bankname}}</text>
+            <view class="table_tr" bindtap='bindclick' wx:for="{{MSGTRankingList}}" wx:for-index="index" wx:for-item="item" wx:key="Account_Id" data-name='{{item.Real_Name}}' data-accountid='{{item.Account_Id}}' style='align-items:center;'>
+              <text>{{index+1}}</text>
+              <text>{{item.Real_Name}}</text>
+              <text class="{{item.Rate>0?'font_red':'font_green'}}">{{item.Rate}}%</text>
+              <text style="width:31%; font-size:12px;">{{item.tname}}\r\n{{item.bankname}}</text>
             </view>
 
           </view>
