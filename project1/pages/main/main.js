@@ -367,7 +367,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      path:"pages/index/index",
+      imageUrl:"../../image/jjds2.png"
+    }
   }
 })
 
